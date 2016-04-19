@@ -249,6 +249,149 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/19/锋利的jQuery-读书笔记/" itemprop="url">
+                  锋利的jQuery-读书笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-19T23:17:47+08:00" content="2016-04-19">
+              2016-04-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/读书笔记2016/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记2016</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/19/锋利的jQuery-读书笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/19/锋利的jQuery-读书笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前一直在看秒味课堂的视频，最开始看css2和html的话还挺好，各种课后作业可以做。后来看css3、html5、jq、anglarjs的时候，就感觉有点像介绍概念，且没有了一些官方布置的练习的题目，导致自己学完一遍没有记忆下来的思维。最近蛮想找份工作养活自己，但投的简历都是石沉大海，所以心态也是相当不稳定。妈妈今天做手术，昨天晚上整夜失眠睡不着，下午睡了两个小时，真是学也学不进去，睡也没办法睡，所以抱着之前买的《锋利的jQuery》在床上看。</p>
+<h2 id="《锋利的jQuery》第一章"><a href="#《锋利的jQuery》第一章" class="headerlink" title="《锋利的jQuery》第一章"></a>《锋利的jQuery》第一章</h2><p>最开始看秒味视频的时候，<code>&lt;script&gt;</code>标签里面放的都是window.onload = function(){};<br>而jQuery 中用的是 <code>jQuery()</code>、<code>$()</code>、<code>$(document).ready()</code>其实都是document.ready = function(){};<br>他们之间有什么差异呢？终于在这本书上找到了答案<br>差异：</p>
+<ol>
+<li>window.onload 不能同时编写多个，后面的window.onload=function(){}会取代前面的，而document.ready则可以。</li>
+<li>window.onload 意味着其后面跟着的函数是在整个页面加载完成后（包括图片元素），才会执行，而document.ready是等待页面中的DOM结构绘制完毕就执行。</li>
+</ol>
+<p>据我个人的见解，window.onload这样对于那些大量图片的网站其实用户体验会比document.ready要差一些，但同时又有了新的问题，如果要操作一个图片的宽和高这些属性，用document.ready，但是图片还没有加载玩，这样会不会带来一些问题？<br>经查阅，这样肯定会有问题的，jQ提供了一个元素的操作方法：load();可以<code>$(window).load()</code>其实就是<code>window.onload</code>，或者把load时间加载到元素身上。</p>
+<h2 id="简单的笔记汇总"><a href="#简单的笔记汇总" class="headerlink" title="简单的笔记汇总"></a>简单的笔记汇总</h2><h3 id="本书推荐的一些规范写法"><a href="#本书推荐的一些规范写法" class="headerlink" title="本书推荐的一些规范写法"></a>本书推荐的一些规范写法</h3><ol>
+<li>再秒味课堂有些视频看到的是 <code>var aLi = $(li)</code>,在本书中，推荐如果获取的对象是jQ对象，则在变量前加上$,用与和原生对象的区别，如：<code>var $aLi = $(li)</code>;</li>
+<li>代码的风格格式，针对JQ长长的链式操作而言：<br>a. 对于同一对象不超过3个的，直接写成一行。<br>b. 对于同一对象较多操作，建议每行写一个操作，如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">this</span>).removeClass(<span class="string">'mouseout'</span>)</span><br><span class="line">		.addClass(<span class="string">'mouseover'</span>)</span><br><span class="line">		.stop()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>c. 对于多个对象少量操作，可以每个对象写一行，如果对象设计子元素，可以考虑缩进。</p>
+<h3 id="其他内容"><a href="#其他内容" class="headerlink" title="其他内容"></a>其他内容</h3><h4 id="JQ对象和原生对象之间不能够混用"><a href="#JQ对象和原生对象之间不能够混用" class="headerlink" title="JQ对象和原生对象之间不能够混用"></a>JQ对象和原生对象之间不能够混用</h4><p>如果需要混用，可以通过转换的方法：</p>
+<p>JQ对象转换成原生对象，采用[index],或get(index),如<code>$(&#39;li&#39;).get(3).style.display = &quot;none&quot;</code></p>
+<p>原生对象转换为JQ对象，只需像这样$(DOM对象)；</p>
+<h4 id="解决JQ库和其他库之间的冲突"><a href="#解决JQ库和其他库之间的冲突" class="headerlink" title="解决JQ库和其他库之间的冲突"></a>解决JQ库和其他库之间的冲突</h4><p>如果JQ库放在其他库之后导入：</p>
+<ol>
+<li>加入<code>jQuery.noConfict()</code>,然后不用$(),直接使用jQuery()代替。//可能因为$容易和其他程序冲突</li>
+<li>自定义一个快捷方式，如<code>$j = jQuery.noConfict()</code>，然后用$j()代替$();</li>
+</ol>
+<p>如果jQ库放在其他库之前导入：</p>
+<p>文中介绍的说你不使用$(),就可以了。//逗比的书，每次都用jQuery()很累的好不好，建议还是用上文的2方法。</p>
+<p>我一个大龄前端小学生，如果上文中有什么错误的地方，还请您指正，不甚感激！</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/18/css选择器及选择器的优先级/" itemprop="url">
                   css选择器及选择器的优先级
                 </a>
@@ -497,128 +640,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/16/用git和hexo搭建博客遇到问题和解决办法/" itemprop="url">
-                  用git和hexo搭建博客遇到问题和解决办法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-16T11:56:09+08:00" content="2016-04-16">
-              2016-04-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/16/用git和hexo搭建博客遇到问题和解决办法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/16/用git和hexo搭建博客遇到问题和解决办法/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天花了好几个小时，才把自己的第一个博客搭建起来。现在写下这篇简单记录一下自己遇到的坑，和一些常用操作，以便备忘。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/16/用git和hexo搭建博客遇到问题和解决办法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/04/16/学习笔记-我用git和hexo搭建博客遇到问题和解决办法/" itemprop="url">
                   学习笔记-我用git和hexo搭建博客遇到问题和解决办法
                 </a>
@@ -691,6 +712,128 @@
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天花了好几个小时，才把自己的第一个博客搭建起来。现在写下这篇简单记录一下自己遇到的坑，和一些常用操作，以便备忘。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/16/学习笔记-我用git和hexo搭建博客遇到问题和解决办法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/16/用git和hexo搭建博客遇到问题和解决办法/" itemprop="url">
+                  用git和hexo搭建博客遇到问题和解决办法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-16T11:56:09+08:00" content="2016-04-16">
+              2016-04-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/16/用git和hexo搭建博客遇到问题和解决办法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/16/用git和hexo搭建博客遇到问题和解决办法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天花了好几个小时，才把自己的第一个博客搭建起来。现在写下这篇简单记录一下自己遇到的坑，和一些常用操作，以便备忘。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/16/用git和hexo搭建博客遇到问题和解决办法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -862,7 +1005,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -870,7 +1013,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -879,7 +1022,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -904,7 +1047,7 @@
               <span class="links-of-author-item">
                 <a href="http://ali1213.coding.me/ali1213" target="_blank" title="gitcofe">
                   
-                    <i class="fa fa-global"></i>
+                    <i class="fa fa-globe"></i>
                   
                   gitcofe
                 </a>
