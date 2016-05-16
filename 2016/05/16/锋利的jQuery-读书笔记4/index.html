@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="学习笔记," />
+  <meta name="keywords" content="jQurey,读书笔记," />
 
 
 
@@ -80,16 +80,16 @@
 
 
 
-<meta name="description" content="前言昨天花了好几个小时，才把自己的第一个博客搭建起来。现在写下这篇简单记录一下自己遇到的坑，和一些常用操作，以便备忘。">
+<meta name="description" content="前言昨天晚上看完了JQ第四章, 话说其实每天要用电脑打字感觉挺累的。上班敲了一天的代码，下班感觉什么都不想动。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用git和hexo搭建博客遇到问题和解决办法">
-<meta property="og:url" content="http://yoursite.com/2016/04/16/用git和hexo搭建博客遇到问题和解决办法/index.html">
+<meta property="og:title" content="锋利的jQuery-读书笔记4">
+<meta property="og:url" content="http://yoursite.com/2016/05/16/锋利的jQuery-读书笔记4/index.html">
 <meta property="og:site_name" content="Ali的博客">
-<meta property="og:description" content="前言昨天花了好几个小时，才把自己的第一个博客搭建起来。现在写下这篇简单记录一下自己遇到的坑，和一些常用操作，以便备忘。">
-<meta property="og:updated_time" content="2016-04-18T07:30:30.501Z">
+<meta property="og:description" content="前言昨天晚上看完了JQ第四章, 话说其实每天要用电脑打字感觉挺累的。上班敲了一天的代码，下班感觉什么都不想动。">
+<meta property="og:updated_time" content="2016-05-16T14:03:33.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用git和hexo搭建博客遇到问题和解决办法">
-<meta name="twitter:description" content="前言昨天花了好几个小时，才把自己的第一个博客搭建起来。现在写下这篇简单记录一下自己遇到的坑，和一些常用操作，以便备忘。">
+<meta name="twitter:title" content="锋利的jQuery-读书笔记4">
+<meta name="twitter:description" content="前言昨天晚上看完了JQ第四章, 话说其实每天要用电脑打字感觉挺累的。上班敲了一天的代码，下班感觉什么都不想动。">
 
 
 
@@ -107,7 +107,7 @@
   };
 </script>
 
-  <title> 用git和hexo搭建博客遇到问题和解决办法 | Ali的博客 </title>
+  <title> 锋利的jQuery-读书笔记4 | Ali的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -247,7 +247,7 @@
             
             
               
-                用git和hexo搭建博客遇到问题和解决办法
+                锋利的jQuery-读书笔记4
               
             
           </h1>
@@ -259,8 +259,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-16T11:56:09+08:00" content="2016-04-16">
-              2016-04-16
+            <time itemprop="dateCreated" datetime="2016-05-16T21:18:23+08:00" content="2016-05-16">
+              2016-05-16
             </time>
           </span>
 
@@ -273,8 +273,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
+                  <a href="/categories/读书笔记2016/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记2016</span>
                   </a>
                 </span>
 
@@ -289,8 +289,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/16/用git和hexo搭建博客遇到问题和解决办法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/16/用git和hexo搭建博客遇到问题和解决办法/" itemprop="commentsCount"></span>
+                <a href="/2016/05/16/锋利的jQuery-读书笔记4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/16/锋利的jQuery-读书笔记4/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,27 +318,38 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天花了好几个小时，才把自己的第一个博客搭建起来。现在写下这篇简单记录一下自己遇到的坑，和一些常用操作，以便备忘。<br><a id="more"></a></p>
-<h2 id="git的一些操作"><a href="#git的一些操作" class="headerlink" title="git的一些操作"></a>git的一些操作</h2><p>因为之前已经熟悉git的操作。实际上用到的git常用命令基本不多。主要是创建SSH的公钥。<br>中间有一次因为主题的问题我清空了下浏览器的cookie，结果在用hexo generate –deploy提交的时候又出现了提交不了服务器。原来创建的ssh公钥这么脆弱。</p>
-<pre><code>后来发现是自己用的ss代理服务器的原因造成的，具体解决方法暂时未知。*2016/4/18*
-</code></pre><p><code>$ ssh-keygen -t rsa -C &quot;ali.vip@gmail.com&quot;           //ali.vip@gmail.com为邮箱地址</code></p>
-<p>连按三个空格，找到保存秘钥的文件夹将“id_rsa.pub”文件的公钥（我用的是sublime编辑器打开）复制所有，保存到web服务器</p>
-<h2 id="hexo安装的问题"><a href="#hexo安装的问题" class="headerlink" title="hexo安装的问题"></a>hexo安装的问题</h2><p>hexo官方网站是推荐在安装好git和npm后通过以下命令安装hexo</p>
-<p><code>$ npm install -g hexo-cli</code></p>
-<p>但在实际中，我尝试了很多次都无法安装。</p>
-<p>1.通过config命令:<br><code>npm config set registry http://registry.cnpmjs.org</code><br><code>npm info underscore</code> （如果上面配置正确这个命令会有字符串response）</p>
-<p>2.命令行指定<br><code>npm --registry http://registry.cnpmjs.org info underscore</code></p>
-<p>3.编辑 ~/.npmrc 加入下面内容<br><code>registry = http://registry.cnpmjs.org</code></p>
-<p>我用的是方法1，然后再执行hexo官方的全局安装命令提交。</p>
-<h2 id="hexo常用操作记录"><a href="#hexo常用操作记录" class="headerlink" title="hexo常用操作记录"></a>hexo常用操作记录</h2><h3 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g  (如果报错，执行sudo npm install -g hexo-cli --unsafe-perm=true)</span><br><span class="line">$ hexo init myblog</span><br><span class="line">$ cd myblog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>在浏览器输入：<a href="http://127.0.0.1:4000" target="_blank" rel="external">http://127.0.0.1:4000</a> 即可浏览本地生成的博客</p>
-<h3 id="将本地博客提交至服务器"><a href="#将本地博客提交至服务器" class="headerlink" title="将本地博客提交至服务器"></a>将本地博客提交至服务器</h3><p><code>$ hexo clean//清理之前生成过的静态缓存文件，我一般不用这个</code><br><code>$ hexo generate//    generate命令是重新生成一遍静态文件的意思</code><br><code>$ hexo deploy //将生成的静态页面和文件推送到github服务器上</code></p>
-<p>注：</p>
-<ol>
-<li>上述命令可以用<code>$ hexo g</code>代替<code>$ hexo generate</code></li>
-<li>可以用<code>$ hexo d</code>代替<code>$ hexo deploy</code></li>
-<li>熟练者可以1步直接操作<code>$ hexo g --d</code></li>
-</ol>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天晚上看完了JQ第四章, 话说其实每天要用电脑打字感觉挺累的。上班敲了一天的代码，下班感觉什么都不想动。<br><a id="more"></a></p>
+<h2 id="jQuery中的事件和动画"><a href="#jQuery中的事件和动画" class="headerlink" title="jQuery中的事件和动画"></a>jQuery中的事件和动画</h2><h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>这章最开始讲了一大堆东西，概括起来就几个：<br>bind(),unbind();<br>我就一直在想，绑定事件有什么好处？然后就去查了下，结果没查出来，却发现在jQuery1.7的版本中已经用on()，和off()取代了上面两个，语法为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(elements).on(event[,selector][,data],handle);</span><br><span class="line">$(elements).on(event[,selector],handle);</span><br></pre></td></tr></table></figure></p>
+<p>个人片面理解，bind()的好处在于，可以给同一个元素绑定多个事件，如果你用click()的话，下一个click()就会覆盖上一个。第二个好处是可以绑定自定义事件，然并卵。<br>，然后讲了一个主动出发方法trigger(),以及主动触发但不引起浏览器默认事件（如果主动触发的事件是浏览器默认事件）triggerHandler()</p>
+<h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><p>jQ中的动画运动事件都是默认400ms，可以指定slow(600ms),normal(400ms),fast(200ms);</p>
+<ul>
+<li>show()/hide()</li>
+</ul>
+<p>特性:1.同时改变宽高、透明度。运动结束时改变display值；<br>    2.hide()的时候会把display值记住，然后再次调用show()的时候赋值。</p>
+<ul>
+<li><p>fadeIn()/fadeOut()<br>  感觉是弱版的show()/hide()，只能改变透明度。</p>
+</li>
+<li><p>slideUp()/slideDown()<br>  弱版show()/hide()，只改变高度。</p>
+</li>
+<li><p>animate(params,speed,callback)<br>特性:1.params是一个json<br>  2.发现一个有趣的用法animate({“left”:+=500px},speed,callback),在原位置上累加500px;同理还可以-=<br>  3.通过链式操作，动画会排队等上一个动画执行完再执行，非动画的操作会插队（如css（）），必须在回调函数中使用才可以。</p>
+</li>
+<li><p>停止动画 stop([clearQueue].[gotoEnd])<br>特性：1.两个参数值都是布尔值<br>  2.第一个参数为true，代表清空未执行完的动画队列，第二个参数为true代表将直接把正在执行的动画跳转到末状态。<br>  3.stop()只能改变当前正在执行的动画。</p>
+</li>
+<li><p>判断是否在动画状态 is(‘:animated’)</p>
+</li>
+<li><p>delay( time) 延迟动画，参数单位为ms</p>
+</li>
+<li><p>其他动画</p>
+<ul>
+<li>toggle(speed[,callback])  切换隐藏显示，就是你显示的状态，用这个动画就变成隐藏，你隐藏就变成显示的</li>
+<li>slideToggle(speed[,easing][,callback])  高度变化，切换隐藏显示</li>
+<li>fadeTo(speed,opacity[,callback])  透明度变化到设定值</li>
+<li>fadeToggle(speed[,easing][,callback]) 透明度变化，切换隐藏显示</li>
+</ul>
+</li>
+</ul>
+<p>感觉今天速度还是快啊。最近又想买书了。</p>
+<p>我是一个刚刚闯进前端的小学生，如果上文中有什么错误的地方，还请您指正，不甚感激！</p>
 
       
     </div>
@@ -380,7 +391,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/学习笔记/" rel="tag">#学习笔记</a>
+            <a href="/tags/jQurey/" rel="tag">#jQurey</a>
+          
+            <a href="/tags/读书笔记/" rel="tag">#读书笔记</a>
           
         </div>
       
@@ -389,17 +402,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/15/我的第一篇文章/" rel="next" title="我的第一篇文章">
-                <i class="fa fa-chevron-left"></i> 我的第一篇文章
+              <a href="/2016/05/15/锋利的jQuery-读书笔记3/" rel="next" title="锋利的jQuery-读书笔记3">
+                <i class="fa fa-chevron-left"></i> 锋利的jQuery-读书笔记3
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/16/学习笔记-我用git和hexo搭建博客遇到问题和解决办法/" rel="prev" title="学习笔记-我用git和hexo搭建博客遇到问题和解决办法">
-                学习笔记-我用git和hexo搭建博客遇到问题和解决办法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -425,8 +434,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/16/用git和hexo搭建博客遇到问题和解决办法/"
-           data-title="用git和hexo搭建博客遇到问题和解决办法" data-url="http://yoursite.com/2016/04/16/用git和hexo搭建博客遇到问题和解决办法/">
+      <div class="ds-thread" data-thread-key="2016/05/16/锋利的jQuery-读书笔记4/"
+           data-title="锋利的jQuery-读书笔记4" data-url="http://yoursite.com/2016/05/16/锋利的jQuery-读书笔记4/">
       </div>
     
   </div>
@@ -555,7 +564,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git的一些操作"><span class="nav-number">2.</span> <span class="nav-text">git的一些操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo安装的问题"><span class="nav-number">3.</span> <span class="nav-text">hexo安装的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo常用操作记录"><span class="nav-number">4.</span> <span class="nav-text">hexo常用操作记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装命令"><span class="nav-number">4.1.</span> <span class="nav-text">安装命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将本地博客提交至服务器"><span class="nav-number">4.2.</span> <span class="nav-text">将本地博客提交至服务器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中的事件和动画"><span class="nav-number">2.</span> <span class="nav-text">jQuery中的事件和动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件"><span class="nav-number">2.1.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画"><span class="nav-number">2.2.</span> <span class="nav-text">动画</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
