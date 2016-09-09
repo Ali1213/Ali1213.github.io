@@ -320,7 +320,7 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自打我开了博客以来，这基本上就是我第一个考虑写的文章。<br>话说来长，去年10月28号左右，刚刚看完《Head First HTML与CSS(第2版》的我，感觉自己飘了，毕竟600多页啊，一定要找一份工作压压惊。就请假去了一家公司面试，去面试前，我反复跟公司人事强调，我说我只有两个月的学习，人事说，没事，你过来。（其实我只是学了1个多星期的c语言，然后确定了前端方向，每天工作之余学习3、4个小时的xhtml和css2）。<br>所以一过去就笔试，摊开卷子，十道题目，8道都是js相关，我摸着那剩下两道想着，一定要做出来一道，不然怎么能连滚带爬，连哭带啼的求着面试官收下我呢。<br>其中有一道就是考属性选择器的优先级的。</p>
 <a id="more"></a>
-<h2 id="选择器的优先级"><a href="#选择器的优先级" class="headerlink" title="选择器的优先级"></a>选择器的优先级</h2><p>在优先级面有一个最顶级的存在，虽然基本不要用它，他就是<code>! important</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.head</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:red <span class="meta">!important</span>;</span><br><span class="line">	<span class="attribute">color</span>:green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="选择器的优先级"><a href="#选择器的优先级" class="headerlink" title="选择器的优先级"></a>选择器的优先级</h2><p>在优先级面有一个最顶级的存在，虽然基本不要用它，他就是<code>! important</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.head</span>&#123;</div><div class="line">	<span class="attribute">background</span>:red <span class="meta">!important</span>;</div><div class="line">	<span class="attribute">color</span>:green;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <ol>
 <li>按照选择器类型分</li>
 </ol>
@@ -363,42 +363,42 @@
 </ol>
 <p>a.根据选择器的类型计算权重，根据权重大小，大的优先级高；<br>b.如权重相同，则根据选择器的来源比较；<br>c.如果前面都想同，则根据其在文中的先后顺序，后面的优先级高；</p>
 <h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p>为了有一个顺序，从总体上我按照优先级从高到低排序着说;</p>
-<h3 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#head</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">	<span class="attribute">float</span>:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#head</span>&#123;</div><div class="line">	<span class="attribute">background</span>:red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.left</span>&#123;</div><div class="line">	<span class="attribute">float</span>:left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><ol>
 <li>基础选择器<code>Element[attr]</code></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p[data]&#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p[data]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
 <p>指定了属性名为data的p元素。</p>
 <ol>
 <li>基础选择器<code>Element[attr = &quot;value&quot;]</code></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p[data = "transform"]&#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p[data = "transform"]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
 <p>指定了属性名为data，且属性值为transform的p元素。</p>
 <ol>
 <li>基础选择器<code>Element[attr ~= &quot;value&quot;]</code></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p[data ~= "transform"]&#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;p data = "transform big"&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p[data ~= "transform"]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform big"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
 <p>指定了属性名为data，并且属性值为空格隔开的多个词，其中一个词为指定属性值的p元素。</p>
 <ol>
 <li>基础选择器<code>Element[attr ^= &quot;val&quot;]</code></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p[data = "trans"]&#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p[data = "trans"]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
 <p>这个让我想到了正则，正则中^如果不放在[]内则代表开头的意思，该选择器表示，指定属性名为data，且属性值的开头为trans的p元素</p>
 <ol>
 <li>基础选择器<code>Element[attr $= &quot;lue&quot;]</code></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p[data $= "form"]&#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p[data $= "form"]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
 <p>这个$符号在正则中表示结尾的意思，同理，该段代码表示，指定属性名为data，且属性值是以form结尾的p元素。</p>
 <ol>
 <li>基础选择器<code>Element[attr *= &quot;alu&quot;]</code></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p[data *= "for"]&#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p[data *= "for"]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
 <p>该段代码表示，指定属性名为data，且属性值包含for的p元素。</p>
 <ol>
 <li>基础选择器<code>Element[attr |= &quot;value&quot;]</code></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p[data != "transform"]&#123;</span><br><span class="line">	color:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</span><br><span class="line">&lt;p data = "transform-big"&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">p[data != "transform"]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</div><div class="line">&lt;p data = "transform-big"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
 <p>该段代码表示，指定属性名为data，属性值为”transform”或者”transform-“开头的p元素；</p>
 <font color="red">注：上述7种选择器在IE7及IE7以上均支持</font>
 
@@ -437,7 +437,7 @@
 <li><code>E:input-placeholder</code>用于向元素E的placeholder添加特殊样式。由于未成为W3C规范，因此需要加浏览器厂商前缀</li>
 </ol>
 <h4 id="通用元素选择器和伪类not选择器—-“最弱的选择器”"><a href="#通用元素选择器和伪类not选择器—-“最弱的选择器”" class="headerlink" title="通用元素选择器和伪类not选择器—-“最弱的选择器”"></a>通用元素选择器和伪类not选择器—-“最弱的选择器”</h4><ol>
-<li>通用元素选择器<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>通用元素选择器<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">padding</span>:<span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>话说最开始写代码时最喜欢的。</p>
@@ -446,16 +446,16 @@
 </ol>
 <h4 id="组合类选择器"><a href="#组合类选择器" class="headerlink" title="组合类选择器"></a>组合类选择器</h4><ol>
 <li><p>群组选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>, <span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>, <span class="selector-tag">body</span>&#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">1200px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>后代选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> <span class="selector-tag">div</span>&#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">1200px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>子元素选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &gt; <span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#111</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &gt; <span class="selector-tag">div</span>&#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#111</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>相邻兄弟元素选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">	<span class="attribute">margin-top</span>:<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;</div><div class="line">	<span class="attribute">margin-top</span>:<span class="number">50px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>这个选择器读作：“选择紧接在 h1 元素后出现的段落，h1 和 p 元素拥有共同的父元素”。</p>
@@ -594,7 +594,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -328,7 +328,7 @@
 <p>据我个人的见解，window.onload这样对于那些大量图片的网站其实用户体验会比document.ready要差一些，但同时又有了新的问题，如果要操作一个图片的宽和高这些属性，用document.ready，但是图片还没有加载玩，这样会不会带来一些问题？<br>经查阅，这样肯定会有问题的，jQ提供了一个元素的操作方法：load();可以<code>$(window).load()</code>其实就是<code>window.onload</code>，或者把load时间加载到元素身上。</p>
 <h2 id="简单的笔记汇总"><a href="#简单的笔记汇总" class="headerlink" title="简单的笔记汇总"></a>简单的笔记汇总</h2><h3 id="本书推荐的一些规范写法"><a href="#本书推荐的一些规范写法" class="headerlink" title="本书推荐的一些规范写法"></a>本书推荐的一些规范写法</h3><ol>
 <li>再秒味课堂有些视频看到的是 <code>var aLi = $(li)</code>,在本书中，推荐如果获取的对象是jQ对象，则在变量前加上$,用与和原生对象的区别，如：<code>var $aLi = $(li)</code>;</li>
-<li>代码的风格格式，针对JQ长长的链式操作而言：<br>a. 对于同一对象不超过3个的，直接写成一行。<br>b. 对于同一对象较多操作，建议每行写一个操作，如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">this</span>).removeClass(<span class="string">'mouseout'</span>)</span><br><span class="line">		.addClass(<span class="string">'mouseover'</span>)</span><br><span class="line">		.stop()</span><br></pre></td></tr></table></figure>
+<li>代码的风格格式，针对JQ长长的链式操作而言：<br>a. 对于同一对象不超过3个的，直接写成一行。<br>b. 对于同一对象较多操作，建议每行写一个操作，如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="keyword">this</span>).removeClass(<span class="string">'mouseout'</span>)</div><div class="line">		.addClass(<span class="string">'mouseover'</span>)</div><div class="line">		.stop()</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>c. 对于多个对象少量操作，可以每个对象写一行，如果对象设计子元素，可以考虑缩进。</p>
@@ -477,7 +477,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
