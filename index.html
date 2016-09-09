@@ -249,6 +249,170 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/09/图形化工具SmartGit简单介绍/" itemprop="url">
+                  图形化工具SmartGit简单介绍
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-09T11:11:18+08:00" content="2016-09-09">
+              2016-09-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/09/图形化工具SmartGit简单介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/09/图形化工具SmartGit简单介绍/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="git图形化工具一览"><a href="#git图形化工具一览" class="headerlink" title="git图形化工具一览"></a>git图形化工具一览</h2><table>
+<thead>
+<tr>
+<th>软件名</th>
+<th style="text-align:center">支持系统</th>
+<th style="text-align:right">是否收费</th>
+<th style="text-align:right">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://tortoisegit.org/about/" target="_blank" rel="external">TortoiseGit</a></td>
+<td style="text-align:center">winxp+</td>
+<td style="text-align:right">free</td>
+<td style="text-align:right">支持中文</td>
+</tr>
+<tr>
+<td><a href="http://www.syntevo.com/smartgit/download" target="_blank" rel="external">SmartGit</a></td>
+<td style="text-align:center">win7+,OS10.9-10.11,linux</td>
+<td style="text-align:right">free for non-commercial use</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td><a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">SourceTree</a></td>
+<td style="text-align:center">win7+,OS10.10+</td>
+<td style="text-align:right">free</td>
+<td style="text-align:right">支持中文</td>
+</tr>
+<tr>
+<td><a href="https://desktop.github.com/" target="_blank" rel="external">Git GUI</a></td>
+<td style="text-align:center">win7+,OS10.09+</td>
+<td style="text-align:right">free</td>
+</tr>
+</tbody>
+</table>
+<p>下面介绍一下SmartGit的常用操作。</p>
+<h2 id="window下的安装过程"><a href="#window下的安装过程" class="headerlink" title="window下的安装过程"></a>window下的安装过程</h2><p>安装的过程很简单，请一路向下即可，唯一需要注意的是打开的时候记得选择<br>for non-commercial use only 这种选项，因为该软件只对非商业用户免费。</p>
+<h3 id="界面简介"><a href="#界面简介" class="headerlink" title="界面简介"></a>界面简介</h3><p><img src="http://o92fjw7pr.bkt.clouddn.com/15.png" alt="此处输入图片的描述"></p>
+<hr>
+<h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><p><img src="http://o92fjw7pr.bkt.clouddn.com/7.png" alt="此处输入图片的描述"><br>点开Repository然后选择 clone<br>上述操作也可以直接用快捷键 Ctrl+shift + o;<br><img src="http://o92fjw7pr.bkt.clouddn.com/8.png" alt="此处输入图片的描述"><br><img src="http://o92fjw7pr.bkt.clouddn.com/9.png" alt="此处输入图片的描述"></p>
+<p>至此，git clone操作结束，新添加的项目会出现在软件左侧的repository中，可以方便以后快速使用。</p>
+<hr>
+<h3 id="上传操作（git-add-git-commit-m-“”-git-push-origin-自己分支名）"><a href="#上传操作（git-add-git-commit-m-“”-git-push-origin-自己分支名）" class="headerlink" title="上传操作（git add . ,git commit -m “”,git push origin 自己分支名）"></a>上传操作（git add . ,git commit -m “”,git push origin 自己分支名）</h3><p><img src="http://o92fjw7pr.bkt.clouddn.com/11.png" alt="此处输入图片的描述"><br><img src="http://o92fjw7pr.bkt.clouddn.com/12.png" alt="此处输入图片的描述"></p>
+<hr>
+<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><p><img src="http://o92fjw7pr.bkt.clouddn.com/13.png" alt="此处输入图片的描述"></p>
+<hr>
+<h3 id="回退操作"><a href="#回退操作" class="headerlink" title="回退操作"></a>回退操作</h3><ol>
+<li>回退整个操作</li>
+</ol>
+<p>首页面点击log 进入操作日志。<br><img src="http://o92fjw7pr.bkt.clouddn.com/21.png" alt="此处输入图片的描述"></p>
+<p>右键点击，选择Reset可以回归到这个版本。Reset有三种模式可以选择，mixed、soft、hard。</p>
+<ul>
+<li><p>mixed：工作区不变，reset暂存区、reset当前分支</p>
+</li>
+<li><p>soft：工作区不变、暂存区不变、reset当前分支</p>
+</li>
+<li><p>hard：reset工作区、reset暂存区、reset当前分支</p>
+</li>
+</ul>
+<p><img src="http://o92fjw7pr.bkt.clouddn.com/22.png" alt="此处输入图片的描述"></p>
+<p>2 . 回退单个文件<br>暂未找到</p>
+<h3 id="push到其他分支"><a href="#push到其他分支" class="headerlink" title="push到其他分支"></a>push到其他分支</h3><p><img src="http://o92fjw7pr.bkt.clouddn.com/23.png" alt="此处输入图片的描述"></p>
+<p><img src="http://o92fjw7pr.bkt.clouddn.com/24.png" alt="此处输入图片的描述"></p>
+<p>至此，篇幅有限，仅介绍一部分常用的操作，更细腻的操作，有待您去发现。</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/04/hello-world/" itemprop="url">
                   Hello World
                 </a>
@@ -1167,128 +1331,6 @@
 <li><a href="https://github.com/iissnan/hexo-theme-next">next主题的git仓库</a>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/18/分享一下我现在用的next主题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/16/学习笔记-我用git和hexo搭建博客遇到问题和解决办法/" itemprop="url">
-                  学习笔记-我用git和hexo搭建博客遇到问题和解决办法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-16T11:56:09+08:00" content="2016-04-16">
-              2016-04-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/16/学习笔记-我用git和hexo搭建博客遇到问题和解决办法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/16/学习笔记-我用git和hexo搭建博客遇到问题和解决办法/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天花了好几个小时，才把自己的第一个博客搭建起来。现在写下这篇简单记录一下自己遇到的坑，和一些常用操作，以便备忘。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/16/学习笔记-我用git和hexo搭建博客遇到问题和解决办法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
