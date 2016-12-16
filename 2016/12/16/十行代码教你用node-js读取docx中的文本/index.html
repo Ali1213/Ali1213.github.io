@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="2016年11月," />
+  <meta name="keywords" content="2016年12月," />
 
 
 
@@ -80,16 +80,31 @@
 
 
 
-<meta name="description" content="前言作为一个前端工程师，偶尔还是会经常在google浏览器的console写写代码，记得第一次在console写代码，真是觉得超酷！最开始在控制台，我就很自然的用到jQuery。直到有一天，我输入$(&amp;quot;&amp;quot;)，浏览器给我报了个错！what the fuck！！！">
+<meta name="description" content="前言最近有一个case。需要去解析word文档。有两个需求，一个是将word文档转成PDF，一个是将word文档中的内容按照一定的规范读取到数据库中，去npm仓库找了大概有十几个包，发现主要是通过以下的方式来转换代码。
+
+通过调用系统底层程序（比如说office）的API来转换；
+通过模板，替换数据来实现生成PDF；
+通过有些免费将word转成PDF的网站来实现将word转成PDF，比如docx-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小技巧-console界面使用jQuery">
-<meta property="og:url" content="http://yoursite.com/2016/11/29/小技巧-console界面使用jQuery/index.html">
+<meta property="og:title" content="十行代码教你用node.js读取docx中的文本">
+<meta property="og:url" content="http://yoursite.com/2016/12/16/十行代码教你用node-js读取docx中的文本/index.html">
 <meta property="og:site_name" content="Ali的博客">
-<meta property="og:description" content="前言作为一个前端工程师，偶尔还是会经常在google浏览器的console写写代码，记得第一次在console写代码，真是觉得超酷！最开始在控制台，我就很自然的用到jQuery。直到有一天，我输入$(&amp;quot;&amp;quot;)，浏览器给我报了个错！what the fuck！！！">
-<meta property="og:updated_time" content="2016-12-16T11:32:40.379Z">
+<meta property="og:description" content="前言最近有一个case。需要去解析word文档。有两个需求，一个是将word文档转成PDF，一个是将word文档中的内容按照一定的规范读取到数据库中，去npm仓库找了大概有十几个包，发现主要是通过以下的方式来转换代码。
+
+通过调用系统底层程序（比如说office）的API来转换；
+通过模板，替换数据来实现生成PDF；
+通过有些免费将word转成PDF的网站来实现将word转成PDF，比如docx-">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2453666-4438d3b5000f5ad5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2453666-d745d775c5be30c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-12-16T11:34:08.425Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小技巧-console界面使用jQuery">
-<meta name="twitter:description" content="前言作为一个前端工程师，偶尔还是会经常在google浏览器的console写写代码，记得第一次在console写代码，真是觉得超酷！最开始在控制台，我就很自然的用到jQuery。直到有一天，我输入$(&amp;quot;&amp;quot;)，浏览器给我报了个错！what the fuck！！！">
+<meta name="twitter:title" content="十行代码教你用node.js读取docx中的文本">
+<meta name="twitter:description" content="前言最近有一个case。需要去解析word文档。有两个需求，一个是将word文档转成PDF，一个是将word文档中的内容按照一定的规范读取到数据库中，去npm仓库找了大概有十几个包，发现主要是通过以下的方式来转换代码。
+
+通过调用系统底层程序（比如说office）的API来转换；
+通过模板，替换数据来实现生成PDF；
+通过有些免费将word转成PDF的网站来实现将word转成PDF，比如docx-">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2453666-4438d3b5000f5ad5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -107,7 +122,7 @@
   };
 </script>
 
-  <title> 小技巧-console界面使用jQuery | Ali的博客 </title>
+  <title> 十行代码教你用node.js读取docx中的文本 | Ali的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -247,7 +262,7 @@
             
             
               
-                小技巧-console界面使用jQuery
+                十行代码教你用node.js读取docx中的文本
               
             
           </h1>
@@ -259,8 +274,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-29T20:46:55+08:00" content="2016-11-29">
-              2016-11-29
+            <time itemprop="dateCreated" datetime="2016-12-16T19:30:15+08:00" content="2016-12-16">
+              2016-12-16
             </time>
           </span>
 
@@ -273,8 +288,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">技巧</span>
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
                   </a>
                 </span>
 
@@ -289,8 +304,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/29/小技巧-console界面使用jQuery/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/小技巧-console界面使用jQuery/" itemprop="commentsCount"></span>
+                <a href="/2016/12/16/十行代码教你用node-js读取docx中的文本/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/十行代码教你用node-js读取docx中的文本/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,13 +333,28 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为一个前端工程师，偶尔还是会经常在google浏览器的console写写代码，记得第一次在console写代码，真是觉得超酷！<br>最开始在控制台，我就很自然的用到jQuery。<br>直到有一天，我输入<code>$(&quot;&quot;)</code>，浏览器给我报了个错！<br>what the fuck！！！</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近有一个case。需要去解析word文档。有两个需求，一个是将word文档转成PDF，一个是将word文档中的内容按照一定的规范读取到数据库中，去npm仓库找了大概有十几个包，发现主要是通过以下的方式来转换代码。</p>
+<ul>
+<li>通过调用系统底层程序（比如说office）的API来转换；</li>
+<li>通过模板，替换数据来实现生成PDF；</li>
+<li>通过有些免费将word转成PDF的网站来实现将word转成PDF，比如docx-to-pdf；</li>
+</ul>
+<p>后来退而求其次，想通过先将docx转成文字，发现了个textract的包。<br>当然也有缺点，不支持docx中的标题号，不支持图片等文件。</p>
+<p>不怕死的我决定自己干这件事情。</p>
 <a id="more"></a>
-<p>后来我才知道，能用是因为打开的网站本身就引入了jQuery。但有一些网站没有引入jQuery，怎么办呢？<br>如果你只是想应急使用的情况下，照超下面的代码即可</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line">s.src = <span class="string">"http://cdn.bootcss.com/jquery/2.2.0/jquery.js"</span>;</div><div class="line"><span class="built_in">document</span>.body.append(s);</div></pre></td></tr></table></figure>
-<p>原理也很简单。<br>1.找一个jquery 的cdn，列入<a href="http://www.bootcdn.cn/jquery/" target="_blank" rel="external">bootcdn.cn</a>。找到你需要的版本的jQuery，替换上文中的src；<br>2.用上面的代码插入到document.body中；</p>
-<p>然后就又可以愉快的使用jQuery了。</p>
-<p>感谢bootstrap中文网提供的CDN：<a href="http://www.bootcdn.cn/jquery/" target="_blank" rel="external">jquery</a></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>其实docx就是一个zip包，然后封装了一些xml文件。可以直接将docx的包改后缀为.zip来打开观看。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2453666-4438d3b5000f5ad5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>进入word文件夹</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2453666-d745d775c5be30c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>里面有几个主要的文件。<br>document.xml 这个就是文档的主要内容<br>numbering.xml 这个就是标题号，以及标题号的一些属性<br>styles.xml 这个就是样式列表</p>
+<p>打开document.xml 你就会发现，所有的文本都是用 <w:t>标签包着的。这个就是本文的关键</w:t></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li>首先，需要通过npm安装一个能查看zip文件的包：adm-zip；</li>
+<li>然后，写下下列代码即可<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">const</span> AdmZip = <span class="built_in">require</span>(<span class="string">'adm-zip'</span>); <span class="comment">//引入查看zip文件的包</span></div><div class="line"><span class="keyword">const</span> zip = <span class="keyword">new</span> AdmZip(filePath); <span class="comment">//filePath为文件路径</span></div><div class="line"><span class="keyword">let</span> contentXml = zip.readAsText(<span class="string">"word/document.xml"</span>);<span class="comment">//将document.xml读取为text内容；</span></div><div class="line"><span class="keyword">let</span> str = <span class="string">""</span>;</div><div class="line">contentXml .match(<span class="regexp">/&lt;w:t&gt;[\s\S]+?&lt;\/w:t&gt;/ig</span>).forEach((item)=&gt;&#123;</div><div class="line">str += item.replace(<span class="string">"&lt;w:t&gt;"</span>,<span class="string">""</span>).replace(<span class="string">"&lt;/w:t&gt;"</span>,<span class="string">""</span>)&#125;);</div><div class="line">fs.writeFile(<span class="string">"./2.txt"</span>,str,(err)=&gt;&#123;<span class="comment">//将./2.txt替换为你要输出的文件路径</span></div><div class="line">  <span class="keyword">if</span>(err)<span class="keyword">throw</span> err;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>最近正在用node.js去解析docx的工作。先将最简单的写在上面。回头有空再继续分享</p>
+<p>我是一个刚刚闯进前端的小学生，如果上文中有什么错误的地方，还请您指正，不甚感激！</p>
 
       
     </div>
@@ -366,7 +396,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/2016年11月/" rel="tag">#2016年11月</a>
+            <a href="/tags/2016年12月/" rel="tag">#2016年12月</a>
           
         </div>
       
@@ -375,17 +405,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/21/正则表达式字面量一个bug-续/" rel="next" title="正则表达式字面量一个bug(续)">
-                <i class="fa fa-chevron-left"></i> 正则表达式字面量一个bug(续)
+              <a href="/2016/11/29/小技巧-console界面使用jQuery/" rel="next" title="小技巧-console界面使用jQuery">
+                <i class="fa fa-chevron-left"></i> 小技巧-console界面使用jQuery
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/16/十行代码教你用node-js读取docx中的文本/" rel="prev" title="十行代码教你用node.js读取docx中的文本">
-                十行代码教你用node.js读取docx中的文本 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -411,8 +437,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/29/小技巧-console界面使用jQuery/"
-           data-title="小技巧-console界面使用jQuery" data-url="http://yoursite.com/2016/11/29/小技巧-console界面使用jQuery/">
+      <div class="ds-thread" data-thread-key="2016/12/16/十行代码教你用node-js读取docx中的文本/"
+           data-title="十行代码教你用node.js读取docx中的文本" data-url="http://yoursite.com/2016/12/16/十行代码教你用node-js读取docx中的文本/">
       </div>
     
   </div>
@@ -541,7 +567,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
           </div>
         </section>
