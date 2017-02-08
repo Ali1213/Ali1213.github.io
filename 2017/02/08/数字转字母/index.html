@@ -80,31 +80,25 @@
 
 
 
-<meta name="description" content="前言
-
-这两天有个事情是要生成限定区域，限定内容的excel。
+<meta name="description" content="前言这两天有个事情是要生成限定区域，限定内容的excel。
 有点恶心的说。今天花了大半天时间写了个初稿。
-其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&amp;gt;A,25-&amp;gt;AZ.
-12345678910const toAlphabet = function(num)&amp;#123;  return String.fromCharCode(65">
+其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&amp;gt;A,26-&amp;gt;AA.
+12345678910const toAlphabet = function(num)&amp;#123;  return String.fromCharCode(65 +">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字转字母">
 <meta property="og:url" content="http://yoursite.com/2017/02/08/数字转字母/index.html">
 <meta property="og:site_name" content="Ali的博客">
-<meta property="og:description" content="前言
-
-这两天有个事情是要生成限定区域，限定内容的excel。
+<meta property="og:description" content="前言这两天有个事情是要生成限定区域，限定内容的excel。
 有点恶心的说。今天花了大半天时间写了个初稿。
-其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&amp;gt;A,25-&amp;gt;AZ.
-12345678910const toAlphabet = function(num)&amp;#123;  return String.fromCharCode(65">
-<meta property="og:updated_time" content="2017-02-08T10:04:58.016Z">
+其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&amp;gt;A,26-&amp;gt;AA.
+12345678910const toAlphabet = function(num)&amp;#123;  return String.fromCharCode(65 +">
+<meta property="og:updated_time" content="2017-02-08T10:39:39.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数字转字母">
-<meta name="twitter:description" content="前言
-
-这两天有个事情是要生成限定区域，限定内容的excel。
+<meta name="twitter:description" content="前言这两天有个事情是要生成限定区域，限定内容的excel。
 有点恶心的说。今天花了大半天时间写了个初稿。
-其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&amp;gt;A,25-&amp;gt;AZ.
-12345678910const toAlphabet = function(num)&amp;#123;  return String.fromCharCode(65">
+其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&amp;gt;A,26-&amp;gt;AA.
+12345678910const toAlphabet = function(num)&amp;#123;  return String.fromCharCode(65 +">
 
 
 
@@ -333,12 +327,9 @@
       
 
       
-        <ul>
-<li>前言</li>
-</ul>
-<p>这两天有个事情是要生成限定区域，限定内容的excel。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这两天有个事情是要生成限定区域，限定内容的excel。</p>
 <p>有点恶心的说。今天花了大半天时间写了个初稿。</p>
-<p>其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&gt;A,25-&gt;AZ.</p>
+<p>其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&gt;A,26-&gt;AA.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> toAlphabet = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + <span class="built_in">parseInt</span>(num));</div><div class="line">&#125;;</div><div class="line"><span class="keyword">const</span> to26 = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> num / <span class="number">26</span> &gt;= <span class="number">1</span> ? toAlphabet(num/<span class="number">26</span><span class="number">-1</span>) + to26(num%<span class="number">26</span>) : toAlphabet(num%<span class="number">26</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(to26(<span class="number">1</span>));</div><div class="line"><span class="built_in">console</span>.log(to26(<span class="number">27</span>));</div><div class="line"><span class="built_in">console</span>.log(to26(<span class="number">353</span>));</div></pre></td></tr></table></figure>
 <p>本来想写个符合尾递归优化的。觉得没啥在excel上没啥必要，够用了。</p>
 <p>我只是一个 div工程师，api使用者，字符串拼接员，cp。<br>文笔简陋，如有错误，还请指正！谢谢！</p>
@@ -470,7 +461,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -554,7 +545,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
             
           </div>
         </section>
