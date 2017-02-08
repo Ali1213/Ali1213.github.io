@@ -249,6 +249,134 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/08/数字转字母/" itemprop="url">
+                  数字转字母
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-08T18:03:49+08:00" content="2017-02-08">
+              2017-02-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/08/数字转字母/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/数字转字母/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>前言</li>
+</ul>
+<p>这两天有个事情是要生成限定区域，限定内容的excel。</p>
+<p>有点恶心的说。今天花了大半天时间写了个初稿。</p>
+<p>其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&gt;A,25-&gt;AZ.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> toAlphabet = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + <span class="built_in">parseInt</span>(num));</div><div class="line">&#125;;</div><div class="line"><span class="keyword">const</span> to26 = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> num / <span class="number">26</span> &gt;= <span class="number">1</span> ? toAlphabet(num/<span class="number">26</span><span class="number">-1</span>) + to26(num%<span class="number">26</span>) : toAlphabet(num%<span class="number">26</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(to26(<span class="number">1</span>));</div><div class="line"><span class="built_in">console</span>.log(to26(<span class="number">27</span>));</div><div class="line"><span class="built_in">console</span>.log(to26(<span class="number">353</span>));</div></pre></td></tr></table></figure>
+<p>本来想写个符合尾递归优化的。觉得没啥在excel上没啥必要，够用了。</p>
+<p>我只是一个 div工程师，api使用者，字符串拼接员，cp。<br>文笔简陋，如有错误，还请指正！谢谢！</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/08/2016年总结-看过的那些书/" itemprop="url">
                   2016年总结---看过的那些书
                 </a>
@@ -1385,128 +1513,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/01/锋利的jQuery-读书笔记2/" itemprop="url">
-                  锋利的jQuery-读书笔记2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-01T19:03:25+08:00" content="2016-05-01">
-              2016-05-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/读书笔记2016/" itemprop="url" rel="index">
-                    <span itemprop="name">读书笔记2016</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/01/锋利的jQuery-读书笔记2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/01/锋利的jQuery-读书笔记2/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>好几天因为各种事，也没有好好学习，内心不安。。今天忙完了。继续总结下《锋利的jQuery》第二章。<br>第二章主要是介绍了jQuery的选择器。jQ强大的选择器是实现各种效果的基础，熟练的使用有助于精简代码。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/01/锋利的jQuery-读书笔记2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1552,7 +1558,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1560,7 +1566,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
