@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/18/css选择器及选择器的优先级/index.html">
 <meta property="og:site_name" content="Ali的博客">
 <meta property="og:description" content="前言自打我开了博客以来，这基本上就是我第一个考虑写的文章。话说来长，去年10月28号左右，刚刚看完《Head First HTML与CSS(第2版》的我，感觉自己飘了，毕竟600多页啊，一定要找一份工作压压惊。就请假去了一家公司面试，去面试前，我反复跟公司人事强调，我说我只有两个月的学习，人事说，没事，你过来。（其实我只是学了1个多星期的c语言，然后确定了前端方向，每天工作之余学习3、4个小时的x">
-<meta property="og:updated_time" content="2016-04-19T05:54:49.964Z">
+<meta property="og:updated_time" content="2017-02-08T11:38:21.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css选择器及选择器的优先级">
 <meta name="twitter:description" content="前言自打我开了博客以来，这基本上就是我第一个考虑写的文章。话说来长，去年10月28号左右，刚刚看完《Head First HTML与CSS(第2版》的我，感觉自己飘了，毕竟600多页啊，一定要找一份工作压压惊。就请假去了一家公司面试，去面试前，我反复跟公司人事强调，我说我只有两个月的学习，人事说，没事，你过来。（其实我只是学了1个多星期的c语言，然后确定了前端方向，每天工作之余学习3、4个小时的x">
@@ -383,7 +383,7 @@
 <ol>
 <li>基础选择器<code>Element[attr ^= &quot;val&quot;]</code></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p[data = "trans"]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p[data ^= "trans"]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
 <p>这个让我想到了正则，正则中^如果不放在[]内则代表开头的意思，该选择器表示，指定属性名为data，且属性值的开头为trans的p元素</p>
 <ol>
 <li>基础选择器<code>Element[attr $= &quot;lue&quot;]</code></li>
@@ -398,7 +398,7 @@
 <ol>
 <li>基础选择器<code>Element[attr |= &quot;value&quot;]</code></li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">p[data != "transform"]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</div><div class="line">&lt;p data = "transform-big"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">p[data |= "transform"]&#123;</div><div class="line">	color:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;p data = "transform"&gt;&lt;/p&gt;</div><div class="line">&lt;p data = "transform-big"&gt;&lt;/p&gt;</div></pre></td></tr></table></figure>
 <p>该段代码表示，指定属性名为data，属性值为”transform”或者”transform-“开头的p元素；</p>
 <font color="red">注：上述7种选择器在IE7及IE7以上均支持</font>
 
@@ -594,7 +594,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -602,7 +602,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
