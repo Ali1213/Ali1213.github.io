@@ -96,7 +96,7 @@
 通过有些免费将word转成PDF的网站来实现将word转成PDF，比如docx-">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2453666-4438d3b5000f5ad5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2453666-d745d775c5be30c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-12-16T11:34:08.425Z">
+<meta property="og:updated_time" content="2017-02-15T02:25:51.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="十行代码教你用node.js读取docx中的文本">
 <meta name="twitter:description" content="前言最近有一个case。需要去解析word文档。有两个需求，一个是将word文档转成PDF，一个是将word文档中的内容按照一定的规范读取到数据库中，去npm仓库找了大概有十几个包，发现主要是通过以下的方式来转换代码。
@@ -350,9 +350,12 @@
 <p>打开document.xml 你就会发现，所有的文本都是用 <w:t>标签包着的。这个就是本文的关键</w:t></p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
 <li>首先，需要通过npm安装一个能查看zip文件的包：adm-zip；</li>
-<li>然后，写下下列代码即可<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">const</span> AdmZip = <span class="built_in">require</span>(<span class="string">'adm-zip'</span>); <span class="comment">//引入查看zip文件的包</span></div><div class="line"><span class="keyword">const</span> zip = <span class="keyword">new</span> AdmZip(filePath); <span class="comment">//filePath为文件路径</span></div><div class="line"><span class="keyword">let</span> contentXml = zip.readAsText(<span class="string">"word/document.xml"</span>);<span class="comment">//将document.xml读取为text内容；</span></div><div class="line"><span class="keyword">let</span> str = <span class="string">""</span>;</div><div class="line">contentXml .match(<span class="regexp">/&lt;w:t&gt;[\s\S]+?&lt;\/w:t&gt;/ig</span>).forEach((item)=&gt;&#123;</div><div class="line">str += item.replace(<span class="string">"&lt;w:t&gt;"</span>,<span class="string">""</span>).replace(<span class="string">"&lt;/w:t&gt;"</span>,<span class="string">""</span>)&#125;);</div><div class="line">fs.writeFile(<span class="string">"./2.txt"</span>,str,(err)=&gt;&#123;<span class="comment">//将./2.txt替换为你要输出的文件路径</span></div><div class="line">  <span class="keyword">if</span>(err)<span class="keyword">throw</span> err;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<li>然后，写下下列代码即可<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">const</span> AdmZip = <span class="built_in">require</span>(<span class="string">'adm-zip'</span>); <span class="comment">//引入查看zip文件的包</span></div><div class="line"><span class="keyword">const</span> zip = <span class="keyword">new</span> AdmZip(filePath); <span class="comment">//filePath为文件路径</span></div><div class="line"><span class="keyword">let</span> contentXml = zip.readAsText(<span class="string">"word/document.xml"</span>);<span class="comment">//将document.xml读取为text内容；</span></div><div class="line"><span class="keyword">let</span> str = <span class="string">""</span>;</div><div class="line">contentXml .match(<span class="regexp">/&lt;w:t&gt;[\s\S]*?&lt;\/w:t&gt;/ig</span>).forEach((item)=&gt;&#123;</div><div class="line">str += item.slice(<span class="number">5</span>,<span class="number">-6</span>)&#125;);</div><div class="line">fs.writeFile(<span class="string">"./2.txt"</span>,str,(err)=&gt;&#123;<span class="comment">//将./2.txt替换为你要输出的文件路径</span></div><div class="line">  <span class="keyword">if</span>(err)<span class="keyword">throw</span> err;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>最近正在用node.js去解析docx的工作。先将最简单的写在上面。回头有空再继续分享</p>
+<p>2月13日更新<br>之前随手写的代码，今天测试发现用更新后的代码比源代码的效率提升十倍以上。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//原代码</span></div><div class="line"><span class="comment">//str += item.replace("&lt;w:t&gt;","").replace("&lt;/w:t&gt;","");</span></div><div class="line"><span class="comment">//更新代码</span></div><div class="line">str += item.slice(<span class="number">5</span>,<span class="number">-6</span>)</div></pre></td></tr></table></figure></p>
+<p>附上测试代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"&lt;w:t&gt;sdfjpasif aefnmasd;lf asdfsdf&lt;/w:t&gt;"</span>;</div><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">50000</span>;i++)&#123;</div><div class="line">    arr.push(str);</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.time(<span class="string">"replactest"</span>);</div><div class="line">arr.forEach((item)=&gt;&#123;</div><div class="line">    item.replace(<span class="regexp">/&lt;w:t&gt;/</span>,<span class="string">""</span>).replace(<span class="regexp">/&lt;\/w:t&gt;/</span>,<span class="string">""</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"replactest"</span>);</div><div class="line"><span class="comment">//replactest: 20.560ms</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.time(<span class="string">"replactest2"</span>);</div><div class="line">arr.forEach((item)=&gt;&#123;</div><div class="line">    item.replace(<span class="regexp">/&lt;\/*w:t&gt;/g</span>,<span class="string">""</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"replactest2"</span>);</div><div class="line"><span class="comment">//replactest2: 14.926ms</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.time(<span class="string">"replactest3"</span>);</div><div class="line">arr.forEach((item)=&gt;&#123;</div><div class="line">    item.replace(<span class="regexp">/(^&lt;w:t&gt;)|(&lt;\/w:t&gt;$)/g</span>,<span class="string">""</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"replactest3"</span>);</div><div class="line"><span class="comment">//replactest3: 14.402ms</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.time(<span class="string">"slice"</span>);</div><div class="line">arr.forEach((item)=&gt;&#123;</div><div class="line">    item.slice(<span class="number">5</span>,<span class="number">-6</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"slice"</span>);</div><div class="line"><span class="comment">//slice: 1.718ms</span></div></pre></td></tr></table></figure></p>
 <p>最近正在用node.js去解析docx的工作。先将最简单的写在上面。回头有空再继续分享</p>
 <p>我是一个刚刚闯进前端的小学生，如果上文中有什么错误的地方，还请您指正，不甚感激！</p>
 
@@ -487,7 +490,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -495,7 +498,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -504,7 +507,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="2017年01月," />
+  <meta name="keywords" content="2017年03月," />
 
 
 
@@ -80,25 +80,22 @@
 
 
 
-<meta name="description" content="前言这两天有个事情是要生成限定区域，限定内容的excel。
-有点恶心的说。今天花了大半天时间写了个初稿。
-其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&amp;gt;A,26-&amp;gt;AA.
-12345678910const toAlphabet = function(num)&amp;#123;  return String.fromCharCode(65 +">
+<meta name="description" content="针对的问题
+变量提升 令人困惑
+改变window对象或global对象的属性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数字转字母">
-<meta property="og:url" content="http://yoursite.com/2017/02/08/数字转字母/index.html">
+<meta property="og:title" content="块级作用域-《understanding ECMAScipt6》读书笔记1">
+<meta property="og:url" content="http://yoursite.com/2017/03/15/块级作用域-《understanding-ECMAScipt6》读书笔记1/index.html">
 <meta property="og:site_name" content="Ali的博客">
-<meta property="og:description" content="前言这两天有个事情是要生成限定区域，限定内容的excel。
-有点恶心的说。今天花了大半天时间写了个初稿。
-其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&amp;gt;A,26-&amp;gt;AA.
-12345678910const toAlphabet = function(num)&amp;#123;  return String.fromCharCode(65 +">
-<meta property="og:updated_time" content="2017-02-08T10:39:39.363Z">
+<meta property="og:description" content="针对的问题
+变量提升 令人困惑
+改变window对象或global对象的属性">
+<meta property="og:updated_time" content="2017-03-15T12:25:51.328Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数字转字母">
-<meta name="twitter:description" content="前言这两天有个事情是要生成限定区域，限定内容的excel。
-有点恶心的说。今天花了大半天时间写了个初稿。
-其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&amp;gt;A,26-&amp;gt;AA.
-12345678910const toAlphabet = function(num)&amp;#123;  return String.fromCharCode(65 +">
+<meta name="twitter:title" content="块级作用域-《understanding ECMAScipt6》读书笔记1">
+<meta name="twitter:description" content="针对的问题
+变量提升 令人困惑
+改变window对象或global对象的属性">
 
 
 
@@ -116,7 +113,7 @@
   };
 </script>
 
-  <title> 数字转字母 | Ali的博客 </title>
+  <title> 块级作用域-《understanding ECMAScipt6》读书笔记1 | Ali的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +253,7 @@
             
             
               
-                数字转字母
+                块级作用域-《understanding ECMAScipt6》读书笔记1
               
             
           </h1>
@@ -268,8 +265,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-08T18:03:49+08:00" content="2017-02-08">
-              2017-02-08
+            <time itemprop="dateCreated" datetime="2017-03-15T20:22:12+08:00" content="2017-03-15">
+              2017-03-15
             </time>
           </span>
 
@@ -289,6 +286,18 @@
 
                 
                 
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/js/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
 
               
             </span>
@@ -298,8 +307,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/08/数字转字母/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/数字转字母/" itemprop="commentsCount"></span>
+                <a href="/2017/03/15/块级作用域-《understanding-ECMAScipt6》读书笔记1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/块级作用域-《understanding-ECMAScipt6》读书笔记1/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -327,12 +336,33 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这两天有个事情是要生成限定区域，限定内容的excel。</p>
-<p>有点恶心的说。今天花了大半天时间写了个初稿。</p>
-<p>其中我要求输入函数的参数包括行和列的数量。但转成xml时列的key需要将数字转为字母,比如0-&gt;A,26-&gt;AA.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> toAlphabet = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + <span class="built_in">parseInt</span>(num));</div><div class="line">&#125;;</div><div class="line"><span class="keyword">const</span> to26 = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> num / <span class="number">26</span> &gt;= <span class="number">1</span> ? toAlphabet(num/<span class="number">26</span><span class="number">-1</span>) + to26(num%<span class="number">26</span>) : toAlphabet(num%<span class="number">26</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(to26(<span class="number">1</span>));</div><div class="line"><span class="built_in">console</span>.log(to26(<span class="number">27</span>));</div><div class="line"><span class="built_in">console</span>.log(to26(<span class="number">353</span>));</div></pre></td></tr></table></figure>
-<p>本来想写个符合尾递归优化的。觉得没啥在excel上没啥必要，够用了。</p>
-<p>我只是一个 div工程师，api使用者，字符串拼接员，cp。<br>文笔简陋，如有错误，还请指正！谢谢！</p>
+        <h2 id="针对的问题"><a href="#针对的问题" class="headerlink" title="针对的问题"></a>针对的问题</h2><ul>
+<li>变量提升 令人困惑</li>
+<li>改变window对象或global对象的属性</li>
+</ul>
+<a id="more"></a>
+<h2 id="块级作用域的特点"><a href="#块级作用域的特点" class="headerlink" title="块级作用域的特点"></a>块级作用域的特点</h2><ol>
+<li>作用范围在<code>{}</code>内或者函数体内</li>
+<li>不允许重复声明</li>
+<li>无变量提升</li>
+</ol>
+<h2 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h2><p><code>let</code>跟<code>var</code>比主要有以下三个特点：</p>
+<ul>
+<li>无变量提升</li>
+<li>只在块级作用域内有效</li>
+<li>不允许重复声明</li>
+</ul>
+<h2 id="const声明"><a href="#const声明" class="headerlink" title="const声明"></a>const声明</h2><p><code>const</code>声明与<code>let</code>声明类似，但<code>const</code>声明指向固定的内存指针。</p>
+<ul>
+<li>初始化时必须赋值</li>
+<li>一旦声明，不可改变指针指向</li>
+</ul>
+<h2 id="带来的困惑-TDZ"><a href="#带来的困惑-TDZ" class="headerlink" title="带来的困惑 TDZ"></a>带来的困惑 TDZ</h2><p>TDZ ：暂时性死区<br>在块级作用域内，<code>let</code>和<code>const</code>声明前，任何对变量名的操作都会抛出异常，即使是<code>typeof</code></p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
+<li>for循环中取代<code>var</code></li>
+<li>取代IIFE函数</li>
+</ul>
+<p>文笔简陋，如有错误，还请指正！谢谢！</p>
 
       
     </div>
@@ -374,7 +404,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/2017年01月/" rel="tag">#2017年01月</a>
+            <a href="/tags/2017年03月/" rel="tag">#2017年03月</a>
           
         </div>
       
@@ -383,17 +413,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/08/2016年总结-看过的那些书/" rel="next" title="2016年总结---看过的那些书">
-                <i class="fa fa-chevron-left"></i> 2016年总结---看过的那些书
+              <a href="/2017/02/14/Tesseract训练中文字体识别/" rel="next" title="Tesseract训练中文字体识别">
+                <i class="fa fa-chevron-left"></i> Tesseract训练中文字体识别
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/14/Tesseract训练中文字体识别/" rel="prev" title="Tesseract训练中文字体识别">
-                Tesseract训练中文字体识别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -419,8 +445,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/08/数字转字母/"
-           data-title="数字转字母" data-url="http://yoursite.com/2017/02/08/数字转字母/">
+      <div class="ds-thread" data-thread-key="2017/03/15/块级作用域-《understanding-ECMAScipt6》读书笔记1/"
+           data-title="块级作用域-《understanding ECMAScipt6》读书笔记1" data-url="http://yoursite.com/2017/03/15/块级作用域-《understanding-ECMAScipt6》读书笔记1/">
       </div>
     
   </div>
@@ -549,7 +575,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#针对的问题"><span class="nav-number">1.</span> <span class="nav-text">针对的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级作用域的特点"><span class="nav-number">2.</span> <span class="nav-text">块级作用域的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let声明"><span class="nav-number">3.</span> <span class="nav-text">let声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const声明"><span class="nav-number">4.</span> <span class="nav-text">const声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带来的困惑-TDZ"><span class="nav-number">5.</span> <span class="nav-text">带来的困惑 TDZ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">6.</span> <span class="nav-text">应用场景</span></a></li></ol></div>
             
           </div>
         </section>
