@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jQurey,读书笔记," />
+  <meta name="keywords" content="2017年03月," />
 
 
 
@@ -80,16 +80,16 @@
 
 
 
-<meta name="description" content="前言昨天晚上看完了JQ第四章, 话说其实每天要用电脑打字感觉挺累的。上班敲了一天的代码，下班感觉什么都不想动。">
+<meta name="description" content="ES6增加了对字符串和正则表达式更好的支持">
 <meta property="og:type" content="article">
-<meta property="og:title" content="锋利的jQuery-读书笔记4">
-<meta property="og:url" content="http://yoursite.com/2016/05/16/锋利的jQuery-读书笔记4/index.html">
+<meta property="og:title" content="字符串和正则表达式-《understanding ECMAScipt6》读书笔记2">
+<meta property="og:url" content="http://yoursite.com/2017/03/15/字符串和正则表达式-《understanding-ECMAScipt6》读书笔记2/index.html">
 <meta property="og:site_name" content="Ali的博客">
-<meta property="og:description" content="前言昨天晚上看完了JQ第四章, 话说其实每天要用电脑打字感觉挺累的。上班敲了一天的代码，下班感觉什么都不想动。">
-<meta property="og:updated_time" content="2016-05-16T14:03:33.354Z">
+<meta property="og:description" content="ES6增加了对字符串和正则表达式更好的支持">
+<meta property="og:updated_time" content="2017-03-15T13:32:16.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="锋利的jQuery-读书笔记4">
-<meta name="twitter:description" content="前言昨天晚上看完了JQ第四章, 话说其实每天要用电脑打字感觉挺累的。上班敲了一天的代码，下班感觉什么都不想动。">
+<meta name="twitter:title" content="字符串和正则表达式-《understanding ECMAScipt6》读书笔记2">
+<meta name="twitter:description" content="ES6增加了对字符串和正则表达式更好的支持">
 
 
 
@@ -107,7 +107,7 @@
   };
 </script>
 
-  <title> 锋利的jQuery-读书笔记4 | Ali的博客 </title>
+  <title> 字符串和正则表达式-《understanding ECMAScipt6》读书笔记2 | Ali的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -247,7 +247,7 @@
             
             
               
-                锋利的jQuery-读书笔记4
+                字符串和正则表达式-《understanding ECMAScipt6》读书笔记2
               
             
           </h1>
@@ -259,8 +259,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-16T21:18:23+08:00" content="2016-05-16">
-              2016-05-16
+            <time itemprop="dateCreated" datetime="2017-03-15T21:30:22+08:00" content="2017-03-15">
+              2017-03-15
             </time>
           </span>
 
@@ -273,8 +273,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/读书笔记2016/" itemprop="url" rel="index">
-                    <span itemprop="name">读书笔记2016</span>
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/js/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
                   </a>
                 </span>
 
@@ -289,8 +301,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/16/锋利的jQuery-读书笔记4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/16/锋利的jQuery-读书笔记4/" itemprop="commentsCount"></span>
+                <a href="/2017/03/15/字符串和正则表达式-《understanding-ECMAScipt6》读书笔记2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/字符串和正则表达式-《understanding-ECMAScipt6》读书笔记2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,38 +330,39 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天晚上看完了JQ第四章, 话说其实每天要用电脑打字感觉挺累的。上班敲了一天的代码，下班感觉什么都不想动。<br><a id="more"></a></p>
-<h2 id="jQuery中的事件和动画"><a href="#jQuery中的事件和动画" class="headerlink" title="jQuery中的事件和动画"></a>jQuery中的事件和动画</h2><h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>这章最开始讲了一大堆东西，概括起来就几个：<br>bind(),unbind();<br>我就一直在想，绑定事件有什么好处？然后就去查了下，结果没查出来，却发现在jQuery1.7的版本中已经用on()，和off()取代了上面两个，语法为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(elements).on(event[,selector][,data],handle);</div><div class="line">$(elements).on(event[,selector],handle);</div></pre></td></tr></table></figure></p>
-<p>个人片面理解，bind()的好处在于，可以给同一个元素绑定多个事件，如果你用click()的话，下一个click()就会覆盖上一个。第二个好处是可以绑定自定义事件，然并卵。<br>，然后讲了一个主动出发方法trigger(),以及主动触发但不引起浏览器默认事件（如果主动触发的事件是浏览器默认事件）triggerHandler()</p>
-<h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><p>jQ中的动画运动事件都是默认400ms，可以指定slow(600ms),normal(400ms),fast(200ms);</p>
+        <p>ES6增加了对字符串和正则表达式更好的支持<br><a id="more"></a></p>
+<h2 id="更好的unicode支持"><a href="#更好的unicode支持" class="headerlink" title="更好的unicode支持"></a>更好的unicode支持</h2><p>一些UTF-16编码的文字在ES5中出现一些问题</p>
 <ul>
-<li>show()/hide()</li>
+<li>识别为两个字节</li>
+<li>正则表达式匹配单个字符无法匹配上</li>
+<li><code>charAt()</code>方法无法识别</li>
+<li><code>charCodeAt()</code>方法无法返回正确结果</li>
 </ul>
-<p>特性:1.同时改变宽高、透明度。运动结束时改变display值；<br>    2.hide()的时候会把display值记住，然后再次调用show()的时候赋值。</p>
-<ul>
-<li><p>fadeIn()/fadeOut()<br>  感觉是弱版的show()/hide()，只能改变透明度。</p>
-</li>
-<li><p>slideUp()/slideDown()<br>  弱版show()/hide()，只改变高度。</p>
-</li>
-<li><p>animate(params,speed,callback)<br>特性:1.params是一个json<br>  2.发现一个有趣的用法animate({“left”:+=500px},speed,callback),在原位置上累加500px;同理还可以-=<br>  3.通过链式操作，动画会排队等上一个动画执行完再执行，非动画的操作会插队（如css（）），必须在回调函数中使用才可以。</p>
-</li>
-<li><p>停止动画 stop([clearQueue].[gotoEnd])<br>特性：1.两个参数值都是布尔值<br>  2.第一个参数为true，代表清空未执行完的动画队列，第二个参数为true代表将直接把正在执行的动画跳转到末状态。<br>  3.stop()只能改变当前正在执行的动画。</p>
-</li>
-<li><p>判断是否在动画状态 is(‘:animated’)</p>
-</li>
-<li><p>delay( time) 延迟动画，参数单位为ms</p>
-</li>
-<li><p>其他动画</p>
-<ul>
-<li>toggle(speed[,callback])  切换隐藏显示，就是你显示的状态，用这个动画就变成隐藏，你隐藏就变成显示的</li>
-<li>slideToggle(speed[,easing][,callback])  高度变化，切换隐藏显示</li>
-<li>fadeTo(speed,opacity[,callback])  透明度变化到设定值</li>
-<li>fadeToggle(speed[,easing][,callback]) 透明度变化，切换隐藏显示</li>
+<h3 id="String-prototype-charPointAt-方法"><a href="#String-prototype-charPointAt-方法" class="headerlink" title="String.prototype.charPointAt()方法"></a><code>String.prototype.charPointAt()</code>方法</h3><p>与<code>charCodeAt()</code>不同，该方法会在识别UTF-16编码的第一个字节会返回正确的结果。<br>but，第二个字节上与<code>charCodeAt()</code>结果并无不同。</p>
+<h3 id="String-prototype-formCodePoint-方法"><a href="#String-prototype-formCodePoint-方法" class="headerlink" title="String.prototype.formCodePoint()方法"></a><code>String.prototype.formCodePoint()</code>方法</h3><p>会返回正确结果</p>
+<h3 id="String-prototype-normalize-方法"><a href="#String-prototype-normalize-方法" class="headerlink" title="String.prototype.normalize()方法"></a><code>String.prototype.normalize()</code>方法</h3><p>为了方便对不同编码的结果统一化，如æ与ae其实是等价的，但只有在normalize之后才会等价<br>1参，为”NFC”、”NFD”、”NFKC”、”NFKD”中一个,默认为’NFC’;</p>
+<h3 id="正则表达式的u特符"><a href="#正则表达式的u特符" class="headerlink" title="正则表达式的u特符"></a>正则表达式的u特符</h3><ul>
+<li>可以识别Unicode<br><code>/^.$/u.test(ஷ)</code></li>
+<li>可以通过上面的例子变相的实现计算字符串的真实长度（不过效率低）</li>
 </ul>
-</li>
+<h2 id="字符串其他的变化"><a href="#字符串其他的变化" class="headerlink" title="字符串其他的变化"></a>字符串其他的变化</h2><p>ES5里面只增加了一个trim()方法，ES6则增加了很多</p>
+<h3 id="String-prototype-includes-方法"><a href="#String-prototype-includes-方法" class="headerlink" title="String.prototype.includes()方法"></a><code>String.prototype.includes()</code>方法</h3><p>2参，第二参可选<br>1参为搜索的字符串<br>2参为搜索的起始位置</p>
+<p>如果找到，返回true，没有则返回false</p>
+<h3 id="String-prototype-startsWith-方法"><a href="#String-prototype-startsWith-方法" class="headerlink" title="String.prototype.startsWith()方法"></a><code>String.prototype.startsWith()</code>方法</h3><p>2参，第二参可选<br>1参为匹配的字符串<br>2参为搜索的起始位置</p>
+<p>如果字符串是以匹配的字符串开头的，则返回true，否则则返回false;</p>
+<h3 id="String-prototype-endsWith-方法"><a href="#String-prototype-endsWith-方法" class="headerlink" title="String.prototype.endsWith()方法"></a><code>String.prototype.endsWith()</code>方法</h3><p>2参，第二参可选<br>1参为匹配的字符串<br>2参为搜索的起始位置</p>
+<p>如果字符串是以匹配的字符串结束的，则返回true，否则则返回false;</p>
+<h3 id="String-prototype-repeat-方法"><a href="#String-prototype-repeat-方法" class="headerlink" title="String.prototype.repeat()方法"></a><code>String.prototype.repeat()</code>方法</h3><p>1参<br>1参字符串重复的次数<br>参数不能为负数，如果为小数是，使用其整数部分<br>返回重复n次（n为参数）的字符串</p>
+<h2 id="正则表达式的其他变化"><a href="#正则表达式的其他变化" class="headerlink" title="正则表达式的其他变化"></a>正则表达式的其他变化</h2><h3 id="y特符"><a href="#y特符" class="headerlink" title="y特符"></a>y特符</h3><p>相当于对每次匹配的字符都加个<code>^</code><br>则可通过 /我是测试/y.sticky 返回true或false判断有没有.</p>
+<h3 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h3><p>以下代码在ES5报错，ES6中不会<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> re = <span class="regexp">/ab/i</span>,</div><div class="line">  re2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(re,<span class="string">'g'</span>)</div></pre></td></tr></table></figure></p>
+<p>g会替换掉i</p>
+<h3 id="flags属性"><a href="#flags属性" class="headerlink" title="flags属性"></a>flags属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> re = <span class="regexp">/ab/i</span>;</div><div class="line">re.flags <span class="comment">//i</span></div></pre></td></tr></table></figure>
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>支持多行字符串。要换行，在换行位置加上\n</li>
+<li>对字符串基本的格式化。 ${}神器</li>
+<li>HTML 安全转义</li>
 </ul>
-<p>感觉今天速度还是快啊。最近又想买书了。</p>
-<p>我是一个刚刚闯进前端的小学生，如果上文中有什么错误的地方，还请您指正，不甚感激！</p>
+<p>文笔简陋，如有错误，还请指正！谢谢！</p>
 
       
     </div>
@@ -391,9 +404,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jQurey/" rel="tag">#jQurey</a>
-          
-            <a href="/tags/读书笔记/" rel="tag">#读书笔记</a>
+            <a href="/tags/2017年03月/" rel="tag">#2017年03月</a>
           
         </div>
       
@@ -402,17 +413,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/15/锋利的jQuery-读书笔记3/" rel="next" title="锋利的jQuery-读书笔记3">
-                <i class="fa fa-chevron-left"></i> 锋利的jQuery-读书笔记3
+              <a href="/2017/03/15/块级作用域-《understanding-ECMAScipt6》读书笔记1/" rel="next" title="块级作用域-《understanding ECMAScipt6》读书笔记1">
+                <i class="fa fa-chevron-left"></i> 块级作用域-《understanding ECMAScipt6》读书笔记1
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/09/图形化工具SmartGit简单介绍/" rel="prev" title="图形化工具SmartGit简单介绍">
-                图形化工具SmartGit简单介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -438,8 +445,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/16/锋利的jQuery-读书笔记4/"
-           data-title="锋利的jQuery-读书笔记4" data-url="http://yoursite.com/2016/05/16/锋利的jQuery-读书笔记4/">
+      <div class="ds-thread" data-thread-key="2017/03/15/字符串和正则表达式-《understanding-ECMAScipt6》读书笔记2/"
+           data-title="字符串和正则表达式-《understanding ECMAScipt6》读书笔记2" data-url="http://yoursite.com/2017/03/15/字符串和正则表达式-《understanding-ECMAScipt6》读书笔记2/">
       </div>
     
   </div>
@@ -568,7 +575,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中的事件和动画"><span class="nav-number">2.</span> <span class="nav-text">jQuery中的事件和动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件"><span class="nav-number">2.1.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画"><span class="nav-number">2.2.</span> <span class="nav-text">动画</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更好的unicode支持"><span class="nav-number">1.</span> <span class="nav-text">更好的unicode支持</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-charPointAt-方法"><span class="nav-number">1.1.</span> <span class="nav-text">String.prototype.charPointAt()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-formCodePoint-方法"><span class="nav-number">1.2.</span> <span class="nav-text">String.prototype.formCodePoint()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-normalize-方法"><span class="nav-number">1.3.</span> <span class="nav-text">String.prototype.normalize()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式的u特符"><span class="nav-number">1.4.</span> <span class="nav-text">正则表达式的u特符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串其他的变化"><span class="nav-number">2.</span> <span class="nav-text">字符串其他的变化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-includes-方法"><span class="nav-number">2.1.</span> <span class="nav-text">String.prototype.includes()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-startsWith-方法"><span class="nav-number">2.2.</span> <span class="nav-text">String.prototype.startsWith()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-endsWith-方法"><span class="nav-number">2.3.</span> <span class="nav-text">String.prototype.endsWith()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-repeat-方法"><span class="nav-number">2.4.</span> <span class="nav-text">String.prototype.repeat()方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式的其他变化"><span class="nav-number">3.</span> <span class="nav-text">正则表达式的其他变化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#y特符"><span class="nav-number">3.1.</span> <span class="nav-text">y特符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容"><span class="nav-number">3.2.</span> <span class="nav-text">兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flags属性"><span class="nav-number">3.3.</span> <span class="nav-text">flags属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板字符串"><span class="nav-number">4.</span> <span class="nav-text">模板字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">4.1.</span> <span class="nav-text">特性</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
