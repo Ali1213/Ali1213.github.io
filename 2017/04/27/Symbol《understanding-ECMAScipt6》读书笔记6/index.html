@@ -80,31 +80,22 @@
 
 
 
-<meta name="description" content="对象分类ES6将对象分为以下几类:
-
-普通对象
-外来对象
-标准对象
-内建对象">
+<meta name="description" content="什么是Symbol
+ES6 新增的类型
+原始类型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对象的功能扩展-《understanding ECMAScipt6》读书笔记4">
-<meta property="og:url" content="http://yoursite.com/2017/04/25/对象的功能扩展-《understanding-ECMAScipt6》读书笔记4/index.html">
+<meta property="og:title" content="Symbol《understanding ECMAScipt6》读书笔记6">
+<meta property="og:url" content="http://yoursite.com/2017/04/27/Symbol《understanding-ECMAScipt6》读书笔记6/index.html">
 <meta property="og:site_name" content="Ali的博客">
-<meta property="og:description" content="对象分类ES6将对象分为以下几类:
-
-普通对象
-外来对象
-标准对象
-内建对象">
-<meta property="og:updated_time" content="2017-04-25T10:35:49.853Z">
+<meta property="og:description" content="什么是Symbol
+ES6 新增的类型
+原始类型">
+<meta property="og:updated_time" content="2017-04-27T10:09:20.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对象的功能扩展-《understanding ECMAScipt6》读书笔记4">
-<meta name="twitter:description" content="对象分类ES6将对象分为以下几类:
-
-普通对象
-外来对象
-标准对象
-内建对象">
+<meta name="twitter:title" content="Symbol《understanding ECMAScipt6》读书笔记6">
+<meta name="twitter:description" content="什么是Symbol
+ES6 新增的类型
+原始类型">
 
 
 
@@ -122,7 +113,7 @@
   };
 </script>
 
-  <title> 对象的功能扩展-《understanding ECMAScipt6》读书笔记4 | Ali的博客 </title>
+  <title> Symbol《understanding ECMAScipt6》读书笔记6 | Ali的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +253,7 @@
             
             
               
-                对象的功能扩展-《understanding ECMAScipt6》读书笔记4
+                Symbol《understanding ECMAScipt6》读书笔记6
               
             
           </h1>
@@ -274,8 +265,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-25T18:33:46+08:00" content="2017-04-25">
-              2017-04-25
+            <time itemprop="dateCreated" datetime="2017-04-27T18:08:30+08:00" content="2017-04-27">
+              2017-04-27
             </time>
           </span>
 
@@ -328,8 +319,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/04/25/对象的功能扩展-《understanding-ECMAScipt6》读书笔记4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/25/对象的功能扩展-《understanding-ECMAScipt6》读书笔记4/" itemprop="commentsCount"></span>
+                <a href="/2017/04/27/Symbol《understanding-ECMAScipt6》读书笔记6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/27/Symbol《understanding-ECMAScipt6》读书笔记6/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -357,54 +348,57 @@
       
 
       
-        <h2 id="对象分类"><a href="#对象分类" class="headerlink" title="对象分类"></a>对象分类</h2><p>ES6将对象分为以下几类:</p>
-<ul>
-<li>普通对象</li>
-<li>外来对象</li>
-<li>标准对象</li>
-<li>内建对象</li>
+        <h2 id="什么是Symbol"><a href="#什么是Symbol" class="headerlink" title="什么是Symbol"></a>什么是Symbol</h2><ul>
+<li>ES6 新增的类型</li>
+<li>原始类型</li>
 </ul>
 <a id="more"></a>
-<h2 id="对象字面量的扩展"><a href="#对象字面量的扩展" class="headerlink" title="对象字面量的扩展"></a>对象字面量的扩展</h2><h3 id="当key的名与-（value的变量名）一样时可以简写"><a href="#当key的名与-（value的变量名）一样时可以简写" class="headerlink" title="当key的名与 （value的变量名）一样时可以简写"></a>当key的名与 （value的变量名）一样时可以简写</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params">name,age</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        name,</div><div class="line">        age</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="字面量里面的方法名称可以简写"><a href="#字面量里面的方法名称可以简写" class="headerlink" title="字面量里面的方法名称可以简写"></a>字面量里面的方法名称可以简写</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  getValue()&#123;</div><div class="line">      <span class="comment">//这里是函数内部</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="计算属性名"><a href="#计算属性名" class="headerlink" title="计算属性名"></a>计算属性名</h3><p>记得当初在公司环境还是ES5的时候我踩过这个坑，我以为官方肯定有支持这个，but…。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="built_in">Symbol</span>();</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    [a] : <span class="number">666</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="新的方法"><a href="#新的方法" class="headerlink" title="新的方法"></a>新的方法</h2><h3 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h3><p>传统的<code>===</code>you两个问题:</p>
-<ul>
-<li><code>-0 === +0</code></li>
-<li><code>NaN !== NaN</code></li>
+<h2 id="如何创建Symbol"><a href="#如何创建Symbol" class="headerlink" title="如何创建Symbol"></a>如何创建Symbol</h2><ul>
+<li>可以通过<code>new Object( Symbol() )</code>创建</li>
 </ul>
-<p>Object.is() 解决了这两个问题。传入两个参数，分别是比较的两端</p>
-<h3 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h3><p>一直以来，经常要自己写入一个浅复制的函数，去把两个对象合并为一个对象。Object.assign()解决了这个问题。<br>可以传入n个参数,第一个参数为receiver，其他参数依次将属性和方法添加到receiver。</p>
+<p>注: 由于是原始类型，所以不能通过<code>new Symbol()</code>来创建</p>
 <ul>
-<li>当出现同名时，后面的会覆盖前面的。//注意上文中<strong>依次</strong>这两个字就好</li>
-<li>浅复制</li>
-<li>不复制存取器，如get，只会将存取器复制为单纯的数据属性</li>
+<li>通过<code>Symbol()</code>来创建</li>
+<li>可以加一段描述符，例如<code>Symbol(&quot;descrbe&quot;)</code>,描述符存储在内部的<code>[[Description]]</code></li>
+<li>可以用<code>typeof</code>判断，结果是<code>&quot;symbol&quot;</code></li>
+<li>可以用在<code>Object.defineProperty()</code>和<code>Object.defineProperties()</code></li>
 </ul>
-<h3 id="对象字面量的属性重名"><a href="#对象字面量的属性重名" class="headerlink" title="对象字面量的属性重名"></a>对象字面量的属性重名</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="string">'a'</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">'a'</span>: <span class="number">2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面这段代码在ES5严格模式会报错，ES6则默认用后面覆盖掉前面。<br>//个人感觉这样更符合逻辑.</p>
-<h3 id="属性的枚举顺序"><a href="#属性的枚举顺序" class="headerlink" title="属性的枚举顺序"></a>属性的枚举顺序</h3><p>排序规则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.defineProperty(person,&#123;</div><div class="line">    [<span class="built_in">Symbol</span>()]:&#123;</div><div class="line">        value: <span class="string">"随便"</span>,</div><div class="line">        writeable: <span class="literal">false</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="全局共享Symbols"><a href="#全局共享Symbols" class="headerlink" title="全局共享Symbols"></a>全局共享Symbols</h2><p>ES6提供了一个全局可查的Symbol</p>
+<h3 id="Symbol-for-key"><a href="#Symbol-for-key" class="headerlink" title="Symbol.for(key)"></a>Symbol.for(key)</h3><p>key为识别字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Symbol.for(&quot;uid&quot;) === Symbol.for(&quot;uid&quot;)  //true</div></pre></td></tr></table></figure></p>
+<h3 id="Symbol-keyFor-Symbol"><a href="#Symbol-keyFor-Symbol" class="headerlink" title="Symbol.keyFor(Symbol)"></a>Symbol.keyFor(Symbol)</h3><p>用于根据Symbol对象 找到对应的key</p>
+<h2 id="Symbol强制类型转换"><a href="#Symbol强制类型转换" class="headerlink" title="Symbol强制类型转换"></a>Symbol强制类型转换</h2><p>JavaScript中经常会有很多强制类型转换。<br>但是Symbol对象不行。<br>除非是<code>cosole.log()</code>和<code>String()</code>(默认调用Symbol.toString())。<br>其他的都会直接报错</p>
+<h2 id="检索对象的Symbol属性-方法"><a href="#检索对象的Symbol属性-方法" class="headerlink" title="检索对象的Symbol属性/方法"></a>检索对象的Symbol属性/方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//目前只有一个方法</span></div><div class="line"><span class="built_in">Object</span>.getOwnPropertySymbols()</div></pre></td></tr></table></figure>
+<h2 id="Symbol的一些方法"><a href="#Symbol的一些方法" class="headerlink" title="Symbol的一些方法"></a>Symbol的一些方法</h2><h3 id="Symbol-hasInstance"><a href="#Symbol-hasInstance" class="headerlink" title="Symbol.hasInstance"></a>Symbol.hasInstance</h3><p>作用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [];</div><div class="line">arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>;</div><div class="line"><span class="built_in">Array</span>[<span class="built_in">Symbol</span>.hasInstance](arr)</div><div class="line"><span class="comment">//上面两句话是等价的</span></div><div class="line"><span class="comment">//是个函数</span></div><div class="line"><span class="comment">//1个参数</span></div></pre></td></tr></table></figure></p>
 <ul>
-<li>按数字属性，字符串属性，Symbols属性依次排列</li>
-<li>数字属性按升序排列，越大的排后面</li>
-<li>字符串属性按照添加顺序排列，后添加的放后面</li>
-<li>Symbols属性按照添加顺序排列，后添加的放后面</li>
+<li>每个函数都有这个方法</li>
+<li>该方法定义在<code>Function.prototype</code>,以便保证所有的函数都可以继承这一方法</li>
+<li>该方法不可写，不可配置，不可枚举</li>
+<li>可以用<code>Object.defineProperty()</code>重写</li>
 </ul>
-<p>影响的方法</p>
+<h3 id="Symbol-isConcatSpreadable"><a href="#Symbol-isConcatSpreadable" class="headerlink" title="Symbol.isConcatSpreadable"></a>Symbol.isConcatSpreadable</h3><p>决定在<code>Array.prototype.concat()</code>作用时是否展开<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//属性，值为true or false</span></div><div class="line"><span class="keyword">let</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line">a[<span class="built_in">Symbol</span>.isConcatSpreadable] = <span class="literal">false</span>;</div><div class="line">[].concat(a)</div><div class="line"><span class="comment">//[[1,2,3]]</span></div></pre></td></tr></table></figure></p>
+<h3 id="Symbol-match"><a href="#Symbol-match" class="headerlink" title="Symbol.match"></a>Symbol.match</h3><p>调用match()方法时会调用的方法</p>
+<h3 id="Symbol-replace"><a href="#Symbol-replace" class="headerlink" title="Symbol.replace"></a>Symbol.replace</h3><p>调用replace()方法时会调用的方法</p>
+<h3 id="Symbol-search"><a href="#Symbol-search" class="headerlink" title="Symbol.search"></a>Symbol.search</h3><p>调用search()方法时会调用的方法</p>
+<h3 id="Symbol-split"><a href="#Symbol-split" class="headerlink" title="Symbol.split"></a>Symbol.split</h3><p>调用split()方法时会调用的方法</p>
+<p>注：可以通过上面的四种方法创建一个对象，实现一些特殊效果</p>
+<h3 id="Symbol-toPrimitive"><a href="#Symbol-toPrimitive" class="headerlink" title="Symbol.toPrimitive"></a>Symbol.toPrimitive</h3><p>当需要转为原始值时，调用该方法，</p>
+<p>1参，参数有三个值，</p>
 <ul>
-<li><code>Object.getOwnPropertyNames()</code></li>
-<li><code>Reflect.ownKeys()</code></li>
-<li><code>Object.assign()</code></li>
+<li>当参数是<code>&quot;number&quot;</code>, 返回数字</li>
+<li>当参数是<code>&quot;string&quot;</code>，返回字符串</li>
+<li>当参数是<code>&quot;default&quot;</code>，根据类型返回不同<ul>
+<li>对大部分类型，先调用<code>valueOf()</code>，如果得到原始值，返回。否则调用<code>toString()</code>，如果得到原始值，返回，否则报错</li>
+<li>Date对象，先调用<code>toString()</code>，如果得到原始值，返回。否则调用<code>valueOf()</code>，如果得到原始值，返回，否则报错</li>
 </ul>
-<p>不受影响的方法</p>
-<ul>
-<li><code>for in</code></li>
-<li><code>Object.keys()</code></li>
-<li><code>JSON.stringify()</code></li>
+</li>
 </ul>
-<h3 id="Object-setPrototypeOf"><a href="#Object-setPrototypeOf" class="headerlink" title="Object.setPrototypeOf()"></a><code>Object.setPrototypeOf()</code></h3><p>ES5中提供了<code>Object.getPrototypeOf()</code>，是通过读取内部方法[[Prototype]]的值，ES6则更进一步，提供了<code>Object.setPrototypeOf()</code>方法。<br>两个参数，1参为 对象，2参为 原型</p>
-<h3 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h3><p>用于获取该对象的原型（通过<code>Object,getPrototypeOf()</code>）。<br>注：该关键字只能用于简写的方法内，如下所示，</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> person = &#123;</div><div class="line">  getSuper()&#123;</div><div class="line">    <span class="keyword">return</span> Super;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>虽然通过<code>Object.getPrototypeOf(this)</code>，也可以达到<code>super</code>的效果，但是<code>Object.getPrototype(this)</code>依赖于<code>this</code>关键字，而<code>this</code>关键字在某些情况下并不指向自身。<br><code>super</code>依赖于内部方法[[HomeObject]]存储的Prototype的名称。</p>
+<p>仅当<code>==</code>、<code>+</code>、传参入Date构造函数时使用<code>&quot;default&quot;</code>模式，</p>
+<h3 id="Symbol-toStringTag"><a href="#Symbol-toStringTag" class="headerlink" title="Symbol.toStringTag"></a>Symbol.toStringTag</h3><p>在ES5中，有的时候会用到下面的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.prototype.toString.call([]) === <span class="string">"[Object Array]"</span>;</div><div class="line"><span class="comment">//接下来是见证奇迹的时刻</span></div><div class="line"></div><div class="line"><span class="built_in">Array</span>.prototype[<span class="built_in">Symbol</span>.toStringTag] = <span class="string">"shenme"</span></div><div class="line"><span class="built_in">Object</span>.prototype.toString.call([]);</div><div class="line"><span class="comment">//"[object shenme]"</span></div></pre></td></tr></table></figure>
+<h3 id="Symbol-unscopables"><a href="#Symbol-unscopables" class="headerlink" title="Symbol.unscopables"></a>Symbol.unscopables</h3><p>js有一个各种人都不推荐用的方法叫做with<br>ES6还是在兼容它<br>但是一些方法在with内部是不会暴露出来的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES6默认配置</span></div><div class="line"><span class="built_in">Array</span>.prototype[<span class="built_in">Symbol</span>.unscopables] = <span class="built_in">Object</span>.assign(<span class="built_in">Object</span>.create(<span class="literal">null</span>), &#123;</div><div class="line">    copyWithin: <span class="literal">true</span>,</div><div class="line">    entries: <span class="literal">true</span>,</div><div class="line">    fill: <span class="literal">true</span>,</div><div class="line">    find: <span class="literal">true</span>,</div><div class="line">    findIndex: <span class="literal">true</span>,</div><div class="line">    keys: <span class="literal">true</span>,</div><div class="line">    values: <span class="literal">true</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Symbol虽然在我目前的工作中基本上没有用到过，个人觉得主要可以用来定义私有变量和属性</p>
 
       
     </div>
@@ -455,17 +449,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/17/函数-《understanding-ECMAScipt6》读书笔记3/" rel="next" title="函数-《understanding ECMAScipt6》读书笔记3">
-                <i class="fa fa-chevron-left"></i> 函数-《understanding ECMAScipt6》读书笔记3
+              <a href="/2017/04/26/解构赋值-《understanding-ECMAScipt6》读书笔记5/" rel="next" title="解构赋值-《understanding ECMAScipt6》读书笔记5">
+                <i class="fa fa-chevron-left"></i> 解构赋值-《understanding ECMAScipt6》读书笔记5
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/26/解构赋值-《understanding-ECMAScipt6》读书笔记5/" rel="prev" title="解构赋值-《understanding ECMAScipt6》读书笔记5">
-                解构赋值-《understanding ECMAScipt6》读书笔记5 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -491,8 +481,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/25/对象的功能扩展-《understanding-ECMAScipt6》读书笔记4/"
-           data-title="对象的功能扩展-《understanding ECMAScipt6》读书笔记4" data-url="http://yoursite.com/2017/04/25/对象的功能扩展-《understanding-ECMAScipt6》读书笔记4/">
+      <div class="ds-thread" data-thread-key="2017/04/27/Symbol《understanding-ECMAScipt6》读书笔记6/"
+           data-title="Symbol《understanding ECMAScipt6》读书笔记6" data-url="http://yoursite.com/2017/04/27/Symbol《understanding-ECMAScipt6》读书笔记6/">
       </div>
     
   </div>
@@ -621,7 +611,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象分类"><span class="nav-number">1.</span> <span class="nav-text">对象分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象字面量的扩展"><span class="nav-number">2.</span> <span class="nav-text">对象字面量的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#当key的名与-（value的变量名）一样时可以简写"><span class="nav-number">2.1.</span> <span class="nav-text">当key的名与 （value的变量名）一样时可以简写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字面量里面的方法名称可以简写"><span class="nav-number">2.2.</span> <span class="nav-text">字面量里面的方法名称可以简写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性名"><span class="nav-number">2.3.</span> <span class="nav-text">计算属性名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新的方法"><span class="nav-number">3.</span> <span class="nav-text">新的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-is"><span class="nav-number">3.1.</span> <span class="nav-text">Object.is()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-assign"><span class="nav-number">3.2.</span> <span class="nav-text">Object.assign()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象字面量的属性重名"><span class="nav-number">3.3.</span> <span class="nav-text">对象字面量的属性重名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性的枚举顺序"><span class="nav-number">3.4.</span> <span class="nav-text">属性的枚举顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-setPrototypeOf"><span class="nav-number">3.5.</span> <span class="nav-text">Object.setPrototypeOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#super关键字"><span class="nav-number">3.6.</span> <span class="nav-text">super关键字</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Symbol"><span class="nav-number">1.</span> <span class="nav-text">什么是Symbol</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何创建Symbol"><span class="nav-number">2.</span> <span class="nav-text">如何创建Symbol</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局共享Symbols"><span class="nav-number">3.</span> <span class="nav-text">全局共享Symbols</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-for-key"><span class="nav-number">3.1.</span> <span class="nav-text">Symbol.for(key)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-keyFor-Symbol"><span class="nav-number">3.2.</span> <span class="nav-text">Symbol.keyFor(Symbol)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symbol强制类型转换"><span class="nav-number">4.</span> <span class="nav-text">Symbol强制类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检索对象的Symbol属性-方法"><span class="nav-number">5.</span> <span class="nav-text">检索对象的Symbol属性/方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symbol的一些方法"><span class="nav-number">6.</span> <span class="nav-text">Symbol的一些方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-hasInstance"><span class="nav-number">6.1.</span> <span class="nav-text">Symbol.hasInstance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-isConcatSpreadable"><span class="nav-number">6.2.</span> <span class="nav-text">Symbol.isConcatSpreadable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-match"><span class="nav-number">6.3.</span> <span class="nav-text">Symbol.match</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-replace"><span class="nav-number">6.4.</span> <span class="nav-text">Symbol.replace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-search"><span class="nav-number">6.5.</span> <span class="nav-text">Symbol.search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-split"><span class="nav-number">6.6.</span> <span class="nav-text">Symbol.split</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-toPrimitive"><span class="nav-number">6.7.</span> <span class="nav-text">Symbol.toPrimitive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-toStringTag"><span class="nav-number">6.8.</span> <span class="nav-text">Symbol.toStringTag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-unscopables"><span class="nav-number">6.9.</span> <span class="nav-text">Symbol.unscopables</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
