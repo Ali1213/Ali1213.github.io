@@ -80,25 +80,16 @@
 
 
 
-<meta name="description" content="不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了半天弄不好
-就用刚学的部分shell命令写了一个,用git bash 运行
-日后优化
-1234567891011121314151617181920212223242526#!/bin/bashBLOG=&amp;quot;../Ali1213.github.io&amp;quot;;for i in `ls $BLOG`do">
+<meta name="description" content="前言不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了下，遇到了个坑。休息的时候突然想了想，这个钩子其实就是在git push（或者其他操作）的时候触发自定义的命令而已。其实我每写一篇文件发布，还需要运行hexo插件的一些操作。为什么我不用shell做这些事情呢？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自动部署博客">
 <meta property="og:url" content="http://yoursite.com/2017/09/07/自动部署博客/index.html">
 <meta property="og:site_name" content="Ali的博客">
-<meta property="og:description" content="不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了半天弄不好
-就用刚学的部分shell命令写了一个,用git bash 运行
-日后优化
-1234567891011121314151617181920212223242526#!/bin/bashBLOG=&amp;quot;../Ali1213.github.io&amp;quot;;for i in `ls $BLOG`do">
-<meta property="og:updated_time" content="2017-09-08T10:30:37.745Z">
+<meta property="og:description" content="前言不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了下，遇到了个坑。休息的时候突然想了想，这个钩子其实就是在git push（或者其他操作）的时候触发自定义的命令而已。其实我每写一篇文件发布，还需要运行hexo插件的一些操作。为什么我不用shell做这些事情呢？">
+<meta property="og:updated_time" content="2017-10-07T16:10:07.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自动部署博客">
-<meta name="twitter:description" content="不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了半天弄不好
-就用刚学的部分shell命令写了一个,用git bash 运行
-日后优化
-1234567891011121314151617181920212223242526#!/bin/bashBLOG=&amp;quot;../Ali1213.github.io&amp;quot;;for i in `ls $BLOG`do">
+<meta name="twitter:description" content="前言不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了下，遇到了个坑。休息的时候突然想了想，这个钩子其实就是在git push（或者其他操作）的时候触发自定义的命令而已。其实我每写一篇文件发布，还需要运行hexo插件的一些操作。为什么我不用shell做这些事情呢？">
 
 
 
@@ -339,10 +330,22 @@
       
 
       
-        <p>不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了半天弄不好</p>
-<p>就用刚学的部分shell命令写了一个,用git bash 运行</p>
-<p>日后优化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">BLOG=&quot;../Ali1213.github.io&quot;;</div><div class="line"></div><div class="line">for i in `ls $BLOG`</div><div class="line">do</div><div class="line">    `rm -rf $BLOG/$i`;</div><div class="line">done</div><div class="line"></div><div class="line">hexo generate &amp;&amp;    /</div><div class="line"></div><div class="line">git add . &amp;&amp; /</div><div class="line"></div><div class="line">git commit -a -m &quot;auto commit by ali at `date +%Y%m%d`&quot; &amp;&amp; /</div><div class="line"></div><div class="line">git push origin master &amp;&amp; /</div><div class="line"></div><div class="line">mv -f public/* $BLOG &amp;&amp; /</div><div class="line"></div><div class="line">cd  $BLOG &amp;&amp; /</div><div class="line"></div><div class="line">git add . &amp;&amp; /</div><div class="line"></div><div class="line">git commit -a -m &quot;auto commit by ali at `date +%Y%m%d`&quot; &amp;&amp; /</div><div class="line"></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了下，遇到了个坑。<br>休息的时候突然想了想，这个钩子其实就是在git push（或者其他操作）的时候触发自定义的命令而已。<br>其实我每写一篇文件发布，还需要运行hexo插件的一些操作。<br>为什么我不用shell做这些事情呢？</p>
+<a id="more"></a>
+<h2 id="流程："><a href="#流程：" class="headerlink" title="流程："></a>流程：</h2><ul>
+<li>准备同时备份两个文件夹，一个是博客的静态资源，一个是hexo博客生成库，两个均备份到github仓库</li>
+<li>配置好两个git文件夹都使用免密码使用git</li>
+<li>将下面的脚本放于hexo博客生成库的文件夹下面（修改BLOG路径为自己的路径），参考文件名为<code>auto.sh</code></li>
+<li>用git bash 执行<code>auto.sh</code></li>
+</ul>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
+<li>删除$BLOG静态资源（有洁癖的我）</li>
+<li>用hexo生成静态资源</li>
+<li>将hexo博客生成库推送到github</li>
+<li>将public/文件夹（静态资源）移动到$BLOG文件夹内</li>
+<li>将$BLOG文件夹推送到github</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">#By Ali 2017</div><div class="line"></div><div class="line">#你博客静态文件所在文件夹</div><div class="line">BLOG=&quot;../Ali1213.github.io&quot;;</div><div class="line"></div><div class="line"></div><div class="line">rm -rf &quot;$BLOG/*&quot;  &amp;&amp;    /</div><div class="line"></div><div class="line">hexo generate &amp;&amp;    /</div><div class="line"></div><div class="line">git add . &amp;&amp; /</div><div class="line"></div><div class="line">git commit -a -m &quot;auto commit by ali at `date +%Y%m%d`&quot; &amp;&amp; /</div><div class="line"></div><div class="line">git push origin master &amp;&amp; /</div><div class="line"></div><div class="line">mv -f public/* $BLOG &amp;&amp; /</div><div class="line"></div><div class="line">cd  $BLOG &amp;&amp; /</div><div class="line"></div><div class="line">git add . &amp;&amp; /</div><div class="line"></div><div class="line">git commit -a -m &quot;auto commit by ali at `date +%Y%m%d`&quot; &amp;&amp; /</div><div class="line"></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -554,7 +557,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程："><span class="nav-number">2.</span> <span class="nav-text">流程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li></ol></div>
             
           </div>
         </section>

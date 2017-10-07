@@ -330,12 +330,12 @@
 
       
         
-          
-            <p>不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了半天弄不好</p>
-<p>就用刚学的部分shell命令写了一个,用git bash 运行</p>
-<p>日后优化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">BLOG=&quot;../Ali1213.github.io&quot;;</div><div class="line"></div><div class="line">for i in `ls $BLOG`</div><div class="line">do</div><div class="line">    `rm -rf $BLOG/$i`;</div><div class="line">done</div><div class="line"></div><div class="line">hexo generate &amp;&amp;    /</div><div class="line"></div><div class="line">git add . &amp;&amp; /</div><div class="line"></div><div class="line">git commit -a -m &quot;auto commit by ali at `date +%Y%m%d`&quot; &amp;&amp; /</div><div class="line"></div><div class="line">git push origin master &amp;&amp; /</div><div class="line"></div><div class="line">mv -f public/* $BLOG &amp;&amp; /</div><div class="line"></div><div class="line">cd  $BLOG &amp;&amp; /</div><div class="line"></div><div class="line">git add . &amp;&amp; /</div><div class="line"></div><div class="line">git commit -a -m &quot;auto commit by ali at `date +%Y%m%d`&quot; &amp;&amp; /</div><div class="line"></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-          
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了下，遇到了个坑。<br>休息的时候突然想了想，这个钩子其实就是在git push（或者其他操作）的时候触发自定义的命令而已。<br>其实我每写一篇文件发布，还需要运行hexo插件的一些操作。<br>为什么我不用shell做这些事情呢？</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/07/自动部署博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
