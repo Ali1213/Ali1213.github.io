@@ -80,16 +80,58 @@
 
 
 
-<meta name="description" content="前言不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了下，遇到了个坑。休息的时候突然想了想，这个钩子其实就是在git push（或者其他操作）的时候触发自定义的命令而已。其实我每写一篇文件发布，还需要运行hexo插件的一些操作。为什么我不用shell做这些事情呢？">
+<meta name="description" content="前言这本书类和行为委托的部分忍不住看了第二遍。觉得观点很新颖，很有意思。
+new调用函数的步骤
+创建一个全新的对象
+为新对象执行[[prototype]]连接
+为新对象绑定函数调用的this
+如果函数没有返回其他对象，new表达式的函数调用会自动返回这个新对象
+
+绑定的优先级从弱到强
+
+默认绑定
+隐式绑定  上下文对象中函数调用等
+显式绑定  call,apply,bind
+new调用
+
+绑定的例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自动部署博客">
-<meta property="og:url" content="http://yoursite.com/2017/09/07/自动部署博客/index.html">
+<meta property="og:title" content="对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2/index.html">
 <meta property="og:site_name" content="Ali的博客">
-<meta property="og:description" content="前言不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了下，遇到了个坑。休息的时候突然想了想，这个钩子其实就是在git push（或者其他操作）的时候触发自定义的命令而已。其实我每写一篇文件发布，还需要运行hexo插件的一些操作。为什么我不用shell做这些事情呢？">
-<meta property="og:updated_time" content="2017-10-07T16:16:10.494Z">
+<meta property="og:description" content="前言这本书类和行为委托的部分忍不住看了第二遍。觉得观点很新颖，很有意思。
+new调用函数的步骤
+创建一个全新的对象
+为新对象执行[[prototype]]连接
+为新对象绑定函数调用的this
+如果函数没有返回其他对象，new表达式的函数调用会自动返回这个新对象
+
+绑定的优先级从弱到强
+
+默认绑定
+隐式绑定  上下文对象中函数调用等
+显式绑定  call,apply,bind
+new调用
+
+绑定的例">
+<meta property="og:updated_time" content="2017-10-10T15:10:02.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自动部署博客">
-<meta name="twitter:description" content="前言不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了下，遇到了个坑。休息的时候突然想了想，这个钩子其实就是在git push（或者其他操作）的时候触发自定义的命令而已。其实我每写一篇文件发布，还需要运行hexo插件的一些操作。为什么我不用shell做这些事情呢？">
+<meta name="twitter:title" content="对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2">
+<meta name="twitter:description" content="前言这本书类和行为委托的部分忍不住看了第二遍。觉得观点很新颖，很有意思。
+new调用函数的步骤
+创建一个全新的对象
+为新对象执行[[prototype]]连接
+为新对象绑定函数调用的this
+如果函数没有返回其他对象，new表达式的函数调用会自动返回这个新对象
+
+绑定的优先级从弱到强
+
+默认绑定
+隐式绑定  上下文对象中函数调用等
+显式绑定  call,apply,bind
+new调用
+
+绑定的例">
 
 
 
@@ -107,7 +149,7 @@
   };
 </script>
 
-  <title> 自动部署博客 | Ali的博客 </title>
+  <title> 对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2 | Ali的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -247,7 +289,7 @@
             
             
               
-                自动部署博客
+                对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2
               
             
           </h1>
@@ -259,8 +301,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-09-07T16:25:15+08:00" content="2017-09-07">
-              2017-09-07
+            <time itemprop="dateCreated" datetime="2017-10-10T21:33:28+08:00" content="2017-10-10">
+              2017-10-10
             </time>
           </span>
 
@@ -273,8 +315,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">技巧</span>
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
                   </a>
                 </span>
 
@@ -285,8 +327,20 @@
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技巧/shell/" itemprop="url" rel="index">
-                    <span itemprop="name">shell</span>
+                  <a href="/categories/js/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/js/ES6/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
                   </a>
                 </span>
 
@@ -301,8 +355,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/09/07/自动部署博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/07/自动部署博客/" itemprop="commentsCount"></span>
+                <a href="/2017/10/10/对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/10/对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -330,22 +384,58 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不想用第三方的travis-ci实现自动部署博客，但是gitbub提供的钩子折腾了下，遇到了个坑。<br>休息的时候突然想了想，这个钩子其实就是在git push（或者其他操作）的时候触发自定义的命令而已。<br>其实我每写一篇文件发布，还需要运行hexo插件的一些操作。<br>为什么我不用shell做这些事情呢？</p>
-<a id="more"></a>
-<h2 id="流程："><a href="#流程：" class="headerlink" title="流程："></a>流程：</h2><ul>
-<li>准备同时备份两个文件夹，一个是博客的静态资源，一个是hexo博客生成库，两个均备份到github仓库</li>
-<li>配置好两个git文件夹都使用免密码使用git</li>
-<li>将下面的脚本放于hexo博客生成库的文件夹下面（修改BLOG路径为自己的路径），参考文件名为<code>auto.sh</code></li>
-<li>用git bash 执行<code>auto.sh</code></li>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这本书类和行为委托的部分忍不住看了第二遍。觉得观点很新颖，很有意思。</p>
+<h2 id="new调用函数的步骤"><a href="#new调用函数的步骤" class="headerlink" title="new调用函数的步骤"></a>new调用函数的步骤</h2><ul>
+<li>创建一个全新的对象</li>
+<li>为新对象执行[[prototype]]连接</li>
+<li>为新对象绑定函数调用的this</li>
+<li>如果函数没有返回其他对象，new表达式的函数调用会自动返回这个新对象</li>
 </ul>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
-<li>删除$BLOG静态资源（有洁癖的我）</li>
-<li>用hexo生成静态资源</li>
-<li>将hexo博客生成库推送到github</li>
-<li>将public/文件夹（静态资源）移动到$BLOG文件夹内</li>
-<li>将$BLOG文件夹推送到github</li>
+<h2 id="绑定的优先级"><a href="#绑定的优先级" class="headerlink" title="绑定的优先级"></a>绑定的优先级</h2><p>从弱到强</p>
+<ul>
+<li>默认绑定</li>
+<li>隐式绑定  上下文对象中函数调用等</li>
+<li>显式绑定  call,apply,bind</li>
+<li>new调用</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">#By Ali 2017</div><div class="line"></div><div class="line">#你博客静态文件所在文件夹</div><div class="line">BLOG=&quot;../Ali1213.github.io&quot;;</div><div class="line"></div><div class="line"></div><div class="line">rm -rf $BLOG/*  &amp;&amp;</div><div class="line"></div><div class="line">hexo generate &amp;&amp;</div><div class="line"></div><div class="line">git add . &amp;&amp;</div><div class="line"></div><div class="line">git commit -a -m &quot;auto commit by ali at `date +%Y%m%d`&quot; &amp;&amp;</div><div class="line"></div><div class="line">git push origin master &amp;&amp;</div><div class="line"></div><div class="line">mv -f public/* $BLOG &amp;&amp;</div><div class="line"></div><div class="line">cd  $BLOG &amp;&amp;</div><div class="line"></div><div class="line">git add . &amp;&amp;</div><div class="line"></div><div class="line">git commit -a -m &quot;auto commit by ali at `date +%Y%m%d`&quot; &amp;&amp;</div><div class="line"></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<p>绑定的例外</p>
+<p>如果显示绑定中传入null 或者undefined作为this，则该显示绑定被忽略。<br>用null可能会出问题，更安全的做法是使用<code>{}</code>，或者<code>Object.create(null)</code>，后者比前者少一个Object.prototype的委托</p>
+<h2 id="一些新方法备忘"><a href="#一些新方法备忘" class="headerlink" title="一些新方法备忘"></a>一些新方法备忘</h2><ul>
+<li><code>Object.preventExtensions()</code><ul>
+<li>禁止添加新属性</li>
+</ul>
+</li>
+<li><code>Object.seal()</code><ul>
+<li>在现有对象上调用<code>Object.preventExtensions()</code>，并把所有属性的<code>configurable</code>设置成<code>false</code></li>
+</ul>
+</li>
+<li><code>Object.freeze()</code><ul>
+<li>在现有对象上调用<code>Object.seal()</code>，并把所有属性的<code>writable</code>设置成<code>false</code></li>
+</ul>
+</li>
+<li><code>Object.propertyIsEnumerable</code><ul>
+<li>检查属性名是否存在于对象（而不是对象的原型链上），且<code>enumerable</code>为<code>true</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="类风格的继承"><a href="#类风格的继承" class="headerlink" title="类风格的继承"></a>类风格的继承</h2><p>设置原型时推荐 <code>child.prototype = Object.create(super.prototype)</code>;</p>
+<p>查阅高级程序设计上是<code>child.prototype = new Super()</code>;</p>
+<p>书上的解释其实我不太能理解</p>
+<h2 id="类和委托"><a href="#类和委托" class="headerlink" title="类和委托"></a>类和委托</h2><p>作者推崇委托的概念。</p>
+<p>传统的类在被实例化的时候，它的行为（方法）会被复制到实例中去，当类被继承的时候，行为（方法）会被复制到子类中去。<br>而Javascript中所有的函数只能被引用而不是复制。</p>
+<p>比较了行为委托和仿类式继承</p>
+<ul>
+<li>代码简单</li>
+<li>对象之间关联关系简单</li>
+<li>不需要有类似显式伪多态这种丑陋的语法</li>
+</ul>
+<p>比较了行为委托和ES6 class</p>
+<ul>
+<li>ES6只是语法糖，并没有改变内部复杂性</li>
+<li>super()实现了相对多态，但super定义是静态的，会带来某些问题</li>
+<li>在继承关系中需要建立共享属性的话，还是需要用到丑陋的prototype</li>
+</ul>
+
       
     </div>
     
@@ -395,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/05/Promise-《understanding-ECMAScipt6》读书笔记11/" rel="next" title="Promise-《understanding-ECMAScipt6》读书笔记11">
-                <i class="fa fa-chevron-left"></i> Promise-《understanding-ECMAScipt6》读书笔记11
+              <a href="/2017/10/08/作用域和闭包《你不知道的JavaScript-上》读书笔记1/" rel="next" title="作用域和闭包《你不知道的JavaScript-上》读书笔记1">
+                <i class="fa fa-chevron-left"></i> 作用域和闭包《你不知道的JavaScript-上》读书笔记1
               </a>
             
           </div>
@@ -427,8 +517,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/09/07/自动部署博客/"
-           data-title="自动部署博客" data-url="http://yoursite.com/2017/09/07/自动部署博客/">
+      <div class="ds-thread" data-thread-key="2017/10/10/对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2/"
+           data-title="对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2" data-url="http://yoursite.com/2017/10/10/对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2/">
       </div>
     
   </div>
@@ -473,7 +563,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -557,7 +647,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程："><span class="nav-number">2.</span> <span class="nav-text">流程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new调用函数的步骤"><span class="nav-number">2.</span> <span class="nav-text">new调用函数的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定的优先级"><span class="nav-number">3.</span> <span class="nav-text">绑定的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些新方法备忘"><span class="nav-number">4.</span> <span class="nav-text">一些新方法备忘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类风格的继承"><span class="nav-number">5.</span> <span class="nav-text">类风格的继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和委托"><span class="nav-number">6.</span> <span class="nav-text">类和委托</span></a></li></ol></div>
             
           </div>
         </section>
