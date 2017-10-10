@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/10/对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2/index.html">
 <meta property="og:site_name" content="Ali的博客">
 <meta property="og:description" content="前言这本书类和行为委托的部分忍不住看了第二遍。觉得观点很新颖，很有意思。">
-<meta property="og:updated_time" content="2017-10-10T15:12:57.497Z">
+<meta property="og:updated_time" content="2017-10-10T15:17:27.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对象、类、原型和委托《你不知道的JavaScript-上》读书笔记2">
 <meta name="twitter:description" content="前言这本书类和行为委托的部分忍不住看了第二遍。觉得观点很新颖，很有意思。">
@@ -394,6 +394,13 @@
 <li>super()实现了相对多态，但super定义是静态的，会带来某些问题</li>
 <li>在继承关系中需要建立共享属性的话，还是需要用到丑陋的prototype</li>
 </ul>
+<h2 id="属性的设置与屏蔽"><a href="#属性的设置与屏蔽" class="headerlink" title="属性的设置与屏蔽"></a>属性的设置与屏蔽</h2><p><code>myObject.foo = &#39;bar&#39;</code>;</p>
+<p>当foo属性存在于原型链的上游时，会出现三种情况:</p>
+<ul>
+<li>当[[prototype]]上有foo，且writable为true时，直接在<code>myObject</code>上添加</li>
+<li>当[[prototype]]上有foo，且writable为false时，严格模式报错，非严格模式则忽略</li>
+<li>当[[prototype]]上有foo，且foo是一个setter,则调用这个setter</li>
+</ul>
 
       
     </div>
@@ -606,7 +613,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new调用函数的步骤"><span class="nav-number">2.</span> <span class="nav-text">new调用函数的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定的优先级"><span class="nav-number">3.</span> <span class="nav-text">绑定的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些新方法备忘"><span class="nav-number">4.</span> <span class="nav-text">一些新方法备忘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类风格的继承"><span class="nav-number">5.</span> <span class="nav-text">类风格的继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和委托"><span class="nav-number">6.</span> <span class="nav-text">类和委托</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new调用函数的步骤"><span class="nav-number">2.</span> <span class="nav-text">new调用函数的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定的优先级"><span class="nav-number">3.</span> <span class="nav-text">绑定的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些新方法备忘"><span class="nav-number">4.</span> <span class="nav-text">一些新方法备忘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类风格的继承"><span class="nav-number">5.</span> <span class="nav-text">类风格的继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和委托"><span class="nav-number">6.</span> <span class="nav-text">类和委托</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性的设置与屏蔽"><span class="nav-number">7.</span> <span class="nav-text">属性的设置与屏蔽</span></a></li></ol></div>
             
           </div>
         </section>
