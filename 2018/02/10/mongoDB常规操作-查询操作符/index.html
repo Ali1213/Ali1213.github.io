@@ -1,0 +1,790 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Mongo,读书笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言最近看Mongo权威指南的时候，偶然间查了下mongo的官方文档，发现其实增加了很多新的API，打算系统性的过一遍。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongoDB常规操作-查询操作符">
+<meta property="og:url" content="http://yoursite.com/2018/02/10/mongoDB常规操作-查询操作符/index.html">
+<meta property="og:site_name" content="Ali的博客">
+<meta property="og:description" content="前言最近看Mongo权威指南的时候，偶然间查了下mongo的官方文档，发现其实增加了很多新的API，打算系统性的过一遍。">
+<meta property="og:updated_time" content="2018-02-10T14:37:50.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongoDB常规操作-查询操作符">
+<meta name="twitter:description" content="前言最近看Mongo权威指南的时候，偶然间查了下mongo的官方文档，发现其实增加了很多新的API，打算系统性的过一遍。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> mongoDB常规操作-查询操作符 | Ali的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ali的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">前端小学生，每天给自己灌鸡汤ing~</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                mongoDB常规操作-查询操作符
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-10T22:31:09+08:00" content="2018-02-10">
+              2018-02-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/2018年/" itemprop="url" rel="index">
+                    <span itemprop="name">2018年</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/02/10/mongoDB常规操作-查询操作符/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/10/mongoDB常规操作-查询操作符/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">阅读次数
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近看Mongo权威指南的时候，偶然间查了下mongo的官方文档，发现其实增加了很多新的API，打算系统性的过一遍。</p>
+<a id="more"></a>
+<h2 id="比较操作符"><a href="#比较操作符" class="headerlink" title="比较操作符"></a>比较操作符</h2><h3 id="eq"><a href="#eq" class="headerlink" title="$eq"></a><code>$eq</code></h3><p>没啥用<br>因为<br><code>db.collectionName.find({&quot;field&quot;:{$eq:&quot;value&quot;}})</code><br>等于<br><code>db.collectionName.find({&quot;field&quot;:&quot;value&quot;})</code></p>
+<h3 id="gt"><a href="#gt" class="headerlink" title="$gt"></a><code>$gt</code></h3><p>语法: <code>{field: {$gt: value} }</code></p>
+<h3 id="gte"><a href="#gte" class="headerlink" title="$gte"></a><code>$gte</code></h3><p>语法: <code>{field: {$gte: value} }</code></p>
+<h3 id="lt"><a href="#lt" class="headerlink" title="$lt"></a><code>$lt</code></h3><p>语法: <code>{field: {$lt: value} }</code></p>
+<h3 id="lte"><a href="#lte" class="headerlink" title="$lte"></a><code>$lte</code></h3><p>语法: <code>{field: {$lte: value} }</code></p>
+<h3 id="in"><a href="#in" class="headerlink" title="$in"></a><code>$in</code></h3><p>语法: <code>{field: {$in: [ &lt;value1&gt;, &lt;value2&gt; ... &lt;valueN&gt; ]} }</code><br>尽量少用$in，而是分解成一个一个的单一查询。尤其是在分片上，$in会让你的查询去每一个分片上查一次，如果实在要用的话，先在每个分片上建索引。</p>
+<h3 id="ne"><a href="#ne" class="headerlink" title="$ne"></a><code>$ne</code></h3><p>语法: <code>{field: {$ne: value} }</code><br>$ne查询会扫描整个collection, 即使是文档上面没有该field也会被扫描。性能会比较差</p>
+<h3 id="nin"><a href="#nin" class="headerlink" title="$nin"></a><code>$nin</code></h3><p>语法: <code>{ field: { $nin: [ &lt;value1&gt;, &lt;value2&gt; ... &lt;valueN&gt; ]} }</code><br>匹配两种文档</p>
+<ol>
+<li>field字段中没有指定数组的值</li>
+<li>没有fileld字段的</li>
+</ol>
+<p>查询会全表扫描。</p>
+<h2 id="逻辑查询符"><a href="#逻辑查询符" class="headerlink" title="逻辑查询符"></a>逻辑查询符</h2><p>逻辑操作符都是元操作符，意味着他们可以放在其他任何操作符之上</p>
+<h3 id="and"><a href="#and" class="headerlink" title="$and"></a><code>$and</code></h3><p>语法: <code>{ $and: [ { &lt;expression1&gt; }, { &lt;expression2&gt; } , ... , { &lt;expressionN&gt; } ] }</code></p>
+<p>第一个expression应筛去尽可能多的条件</p>
+<h3 id="not"><a href="#not" class="headerlink" title="$not"></a><code>$not</code></h3><p>语法: <code>{ field: { $not: { &lt;operator-expression&gt; } } }</code></p>
+<ul>
+<li>$not 在大部分操作符上行为始终一致，但是在一些数据类型（比如数组）可能会产生不同的结果</li>
+<li>$not 操作符不支持 $regex操作符，但是可以使用//替代；</li>
+<li>$not通常不知道如何使用索引</li>
+<li>$not操作符与其他逻辑操作符语法有些不太一样</li>
+</ul>
+<h3 id="or"><a href="#or" class="headerlink" title="$or"></a><code>$or</code></h3><p>语法: <code>{ $or: [ { &lt;expression1&gt; }, { &lt;expression2&gt; }, ... , { &lt;expressionN&gt; } ] }</code></p>
+<ul>
+<li>第一个expression1应匹配尽量多的结果</li>
+<li>使用$or查询，每个expression可以优先选用其自己的索引（而非符合索引）</li>
+<li>除非所有的expression都对应相应的索引，不然$or没有办法使用索引</li>
+<li>因为$text查询必须使用索引，所以当同时使用$or和$text的时候，必须所有的expression都有索引，不然会抛出错误</li>
+<li>如果有可能，尽量用$in代替$or</li>
+</ul>
+<h3 id="nor"><a href="#nor" class="headerlink" title="$nor"></a><code>$nor</code></h3><p>语法: <code>{ $nor: [ { &lt;expression1&gt; }, { &lt;expression2&gt; }, ...  { &lt;expressionN&gt; } ] }</code></p>
+<ul>
+<li>当使用$nor去查询时，不仅包括不符合这个表达式的，还包括不存在于这个表达式中field字段</li>
+<li>可以和$exists配合使用，例如: </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.inventory.find( &#123; $nor: [ </div><div class="line">	&#123; price: <span class="number">1.99</span> &#125;, &#123; price: &#123; $exists: <span class="literal">false</span> &#125; &#125;, </div><div class="line">	&#123; sale: <span class="literal">true</span> &#125;, &#123; sale: &#123; $exists: <span class="literal">false</span> &#125; &#125;</div><div class="line"> ] &#125; )</div></pre></td></tr></table></figure>
+<h2 id="元素查询操作符"><a href="#元素查询操作符" class="headerlink" title="元素查询操作符"></a>元素查询操作符</h2><h3 id="exists"><a href="#exists" class="headerlink" title="$exists"></a><code>$exists</code></h3><p>语法: <code>{ field: { $exists: &lt;boolean&gt; } }</code></p>
+<p>当为true时，匹配包含该字段的文档，即使该字段的值为null</p>
+<ul>
+<li>据mongodb权威指南说，该操作符不会用到索引</li>
+</ul>
+<h3 id="type"><a href="#type" class="headerlink" title="$type"></a><code>$type</code></h3><p>语法: <code>{ field: { $type: &lt;BSON type&gt; } }</code>，<code>{ field: { $type: [ &lt;BSON type1&gt; , &lt;BSON type2&gt;, ... ] } }</code></p>
+<h2 id="估算查询操作符"><a href="#估算查询操作符" class="headerlink" title="估算查询操作符"></a>估算查询操作符</h2><h3 id="expr"><a href="#expr" class="headerlink" title="$expr"></a><code>$expr</code></h3><p>语法: <code>{ $expr: { &lt;expression&gt; } }</code><br>3.6版新增的语法，允许在查询中使用aggregation expression</p>
+<ul>
+<li>可以使用它比较一个文档中的不同field的值，例如：<code>db.monthlyBudget.find( { $expr: { $gt: [ &quot;$spent&quot; , &quot;$budget&quot; ] } } )</code></li>
+<li>可以使用条件语句，例如</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">db.supplies.find( &#123;</div><div class="line">    $expr: &#123;</div><div class="line">       $lt:[ &#123;</div><div class="line">          $cond: &#123;</div><div class="line">             <span class="keyword">if</span>: &#123; $gte: [<span class="string">"$qty"</span>, <span class="number">100</span>] &#125;,</div><div class="line">             then: &#123; $divide: [<span class="string">"$price"</span>, <span class="number">2</span>] &#125;,</div><div class="line">             <span class="keyword">else</span>: &#123; $divide: [<span class="string">"$price"</span>, <span class="number">4</span>] &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;,</div><div class="line">       <span class="number">5</span> ] &#125;</div><div class="line">&#125; )</div></pre></td></tr></table></figure>
+<h3 id="jsonSchema"><a href="#jsonSchema" class="headerlink" title="$jsonSchema"></a><code>$jsonSchema</code></h3><p>语法: <code>{ $jsonSchema: { &lt;expression&gt; } }</code><br>3.6版本新增语法： 讲文档与给定的JSON Schema文档进行匹配<br>示例如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">db.createCollection(<span class="string">"students"</span>, &#123;</div><div class="line">   validator: &#123;</div><div class="line">      $jsonSchema: &#123;</div><div class="line">         bsonType: <span class="string">"object"</span>,</div><div class="line">         required: [ <span class="string">"name"</span>, <span class="string">"year"</span>, <span class="string">"major"</span>, <span class="string">"gpa"</span> ],</div><div class="line">         properties: &#123;</div><div class="line">            name: &#123;</div><div class="line">               bsonType: <span class="string">"string"</span>,</div><div class="line">               description: <span class="string">"must be a string and is required"</span></div><div class="line">            &#125;,</div><div class="line">            gender: &#123;</div><div class="line">               bsonType: <span class="string">"string"</span>,</div><div class="line">               description: <span class="string">"must be a string and is not required"</span></div><div class="line">            &#125;,</div><div class="line">            year: &#123;</div><div class="line">               bsonType: <span class="string">"int"</span>,</div><div class="line">               minimum: <span class="number">2017</span>,</div><div class="line">               maximum: <span class="number">3017</span>,</div><div class="line">               exclusiveMaximum: <span class="literal">false</span>,</div><div class="line">               description: <span class="string">"must be an integer in [ 2017, 3017 ] and is required"</span></div><div class="line">            &#125;,</div><div class="line">            major: &#123;</div><div class="line">               enum: [ <span class="string">"Math"</span>, <span class="string">"English"</span>, <span class="string">"Computer Science"</span>, <span class="string">"History"</span>, <span class="literal">null</span> ],</div><div class="line">               description: <span class="string">"can only be one of the enum values and is required"</span></div><div class="line">            &#125;,</div><div class="line">            gpa: &#123;</div><div class="line">               bsonType: [ <span class="string">"double"</span> ],</div><div class="line">               description: <span class="string">"must be a double and is required"</span></div><div class="line">            &#125;</div><div class="line">         &#125;</div><div class="line">      &#125;</div><div class="line">   &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="mod"><a href="#mod" class="headerlink" title="$mod"></a><code>$mod</code></h3><p>语法: <code>{ field: { $mod: [ divisor, remainder ] } }</code></p>
+<ul>
+<li>返回<code>字段值%divisor === remainder</code>的文档</li>
+<li>如果数组内元素不等于两个会报错</li>
+</ul>
+<h3 id="regex"><a href="#regex" class="headerlink" title="$regex"></a><code>$regex</code></h3><p>语法: <code>{ field: { $mod: [ divisor, remainder ] } }</code><br>可以使用以下的形式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123; &lt;field&gt;: &#123; $regex: /pattern/, $options: '&lt;options&gt;' &#125; &#125;</div><div class="line">&#123; &lt;field&gt;: &#123; $regex: 'pattern', $options: '&lt;options&gt;' &#125; &#125;</div><div class="line">&#123; &lt;field&gt;: &#123; $regex: /pattern/&lt;options&gt; &#125; &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="text"><a href="#text" class="headerlink" title="$text"></a><code>$text</code></h3><p>语法:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  $text:</div><div class="line">    &#123;</div><div class="line">      $search: &lt;string&gt;,</div><div class="line">      $language: &lt;string&gt;,</div><div class="line">      $caseSensitive: &lt;boolean&gt;,</div><div class="line">      $diacriticSensitive: &lt;boolean&gt;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>$text 只在有text索引的field上进行搜索</p>
+<h3 id="where"><a href="#where" class="headerlink" title="$where"></a><code>$where</code></h3><p>语法: ``</p>
+<ul>
+<li>在3.6版本中增加了$expr，与$where相比，不需要执行javascript，所以会快很多，优先使用$expr</li>
+<li>$where只能用于最顶层的文档查询，不能用于内线文档或者数组的查询</li>
+<li>$where无法使用索引</li>
+</ul>
+<p>示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">db.foo.find( &#123; $where: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> (hex_md5(<span class="keyword">this</span>.name) == <span class="string">"9b53e667f30cd329dca1ec9e6a83e994"</span>)</div><div class="line">&#125; &#125; );</div></pre></td></tr></table></figure></p>
+<h2 id="地理空间查询操作符"><a href="#地理空间查询操作符" class="headerlink" title="地理空间查询操作符"></a>地理空间查询操作符</h2><p>暂时略过</p>
+<h2 id="数组查询操作符"><a href="#数组查询操作符" class="headerlink" title="数组查询操作符"></a>数组查询操作符</h2><h3 id="all"><a href="#all" class="headerlink" title="$all"></a><code>$all</code></h3><p>语法: <code>{ &lt;field&gt;: { $all: [ &lt;value1&gt; , &lt;value2&gt; ... ] } }</code></p>
+<p>$all查询用于全部value的指定文档</p>
+<h2 id="elemMatch"><a href="#elemMatch" class="headerlink" title="$elemMatch"></a><code>$elemMatch</code></h2><p>语法: <code>{ &lt;field&gt;: { $elemMatch: { &lt;query1&gt;, &lt;query2&gt;, ... } } }</code></p>
+<p>使用多个表达式去匹配数组的每一项，返回匹配成功的文档</p>
+<h2 id="size"><a href="#size" class="headerlink" title="$size"></a><code>$size</code></h2><p>语法: <code>{ &lt;field&gt;: { $size: length} }</code></p>
+<p>匹配数组的长度，只能是固定值，不能是范围</p>
+<h2 id="位查询操作符"><a href="#位查询操作符" class="headerlink" title="位查询操作符"></a>位查询操作符</h2><p>暂时略过</p>
+<h2 id="Projection操作符"><a href="#Projection操作符" class="headerlink" title="Projection操作符"></a>Projection操作符</h2><h3 id=""><a href="#" class="headerlink" title="$"></a><code>$</code></h3><p>语法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.collection.find( &#123; &lt;array&gt;: &lt;value&gt; ... &#125;,</div><div class="line">                    &#123; "&lt;array&gt;.$": 1 &#125; )</div><div class="line">db.collection.find( &#123; &lt;array.field&gt;: &lt;value&gt; ...&#125;,</div><div class="line">                    &#123; "&lt;array&gt;.$": 1 &#125; )</div></pre></td></tr></table></figure></p>
+<p>返回的文档中的数组只会保留匹配到的数组的那一项</p>
+<h3 id="elemMatch-1"><a href="#elemMatch-1" class="headerlink" title="$elemMatch"></a><code>$elemMatch</code></h3><p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.schools.find( &#123; zipcode: <span class="string">"63109"</span> &#125;,</div><div class="line">                 &#123; students: &#123; $elemMatch: &#123; school: <span class="number">102</span>, age: &#123; $gt: <span class="number">10</span>&#125; &#125; &#125; &#125; )</div></pre></td></tr></table></figure>
+<p>返回的文档中会去掉不匹配的数组项，但是数组中匹配的项以及文档的其他项还是会如期的返回</p>
+<h3 id="meta"><a href="#meta" class="headerlink" title="$meta"></a><code>$meta</code></h3><p>暂时略过</p>
+<h3 id="slice"><a href="#slice" class="headerlink" title="$slice"></a><code>$slice</code></h3><p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.collection.find( &#123; field: value &#125;, &#123; array: &#123;$slice: count &#125; &#125; );</div></pre></td></tr></table></figure>
+<p>返回的数组中含有多少项<br>如果是正数，表示返回的数组的前几个元素<br>如果是负数，表示返回数组的最后几个元素</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="阿力把勤奋的小人捡起来 WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="阿力把勤奋的小人捡起来 Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Mongo/" rel="tag">#Mongo</a>
+          
+            <a href="/tags/读书笔记/" rel="tag">#读书笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/05/Promise-《understanding-ECMAScipt6》读书笔记11/" rel="next" title="Promise-《understanding-ECMAScipt6》读书笔记11">
+                <i class="fa fa-chevron-left"></i> Promise-《understanding-ECMAScipt6》读书笔记11
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/02/10/mongoDB常规操作-查询操作符/"
+           data-title="mongoDB常规操作-查询操作符" data-url="http://yoursite.com/2018/02/10/mongoDB常规操作-查询操作符/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.png"
+               alt="阿力把勤奋的小人捡起来" />
+          <p class="site-author-name" itemprop="name">阿力把勤奋的小人捡起来</p>
+          <p class="site-description motion-element" itemprop="description">Be Alive Keep Fighting</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Ali1213" target="_blank" title="github">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/cece4a37468f/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3174840477" target="_blank" title="微博">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Aliyu1789" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较操作符"><span class="nav-number">2.</span> <span class="nav-text">比较操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#eq"><span class="nav-number">2.1.</span> <span class="nav-text">$eq</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt"><span class="nav-number">2.2.</span> <span class="nav-text">$gt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gte"><span class="nav-number">2.3.</span> <span class="nav-text">$gte</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt"><span class="nav-number">2.4.</span> <span class="nav-text">$lt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lte"><span class="nav-number">2.5.</span> <span class="nav-text">$lte</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#in"><span class="nav-number">2.6.</span> <span class="nav-text">$in</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ne"><span class="nav-number">2.7.</span> <span class="nav-text">$ne</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nin"><span class="nav-number">2.8.</span> <span class="nav-text">$nin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑查询符"><span class="nav-number">3.</span> <span class="nav-text">逻辑查询符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#and"><span class="nav-number">3.1.</span> <span class="nav-text">$and</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#not"><span class="nav-number">3.2.</span> <span class="nav-text">$not</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#or"><span class="nav-number">3.3.</span> <span class="nav-text">$or</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nor"><span class="nav-number">3.4.</span> <span class="nav-text">$nor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素查询操作符"><span class="nav-number">4.</span> <span class="nav-text">元素查询操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#exists"><span class="nav-number">4.1.</span> <span class="nav-text">$exists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#type"><span class="nav-number">4.2.</span> <span class="nav-text">$type</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#估算查询操作符"><span class="nav-number">5.</span> <span class="nav-text">估算查询操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#expr"><span class="nav-number">5.1.</span> <span class="nav-text">$expr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsonSchema"><span class="nav-number">5.2.</span> <span class="nav-text">$jsonSchema</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mod"><span class="nav-number">5.3.</span> <span class="nav-text">$mod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#regex"><span class="nav-number">5.4.</span> <span class="nav-text">$regex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text"><span class="nav-number">5.5.</span> <span class="nav-text">$text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#where"><span class="nav-number">5.6.</span> <span class="nav-text">$where</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地理空间查询操作符"><span class="nav-number">6.</span> <span class="nav-text">地理空间查询操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组查询操作符"><span class="nav-number">7.</span> <span class="nav-text">数组查询操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#all"><span class="nav-number">7.1.</span> <span class="nav-text">$all</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#elemMatch"><span class="nav-number">8.</span> <span class="nav-text">$elemMatch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#size"><span class="nav-number">9.</span> <span class="nav-text">$size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位查询操作符"><span class="nav-number">10.</span> <span class="nav-text">位查询操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Projection操作符"><span class="nav-number">11.</span> <span class="nav-text">Projection操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">11.1.</span> <span class="nav-text">$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#elemMatch-1"><span class="nav-number">11.2.</span> <span class="nav-text">$elemMatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#meta"><span class="nav-number">11.3.</span> <span class="nav-text">$meta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice"><span class="nav-number">11.4.</span> <span class="nav-text">$slice</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">阿力把勤奋的小人捡起来</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv">本站总访问次数<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ali1213gitcofe"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
